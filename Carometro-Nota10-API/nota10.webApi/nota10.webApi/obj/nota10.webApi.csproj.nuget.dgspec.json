@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\47026404881.INFOSCS\\source\\repos\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {}
+    "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\47026404881.INFOSCS\\source\\repos\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {
+    "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\47026404881.INFOSCS\\source\\repos\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+        "projectUniqueName": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
         "projectName": "nota10.webApi",
-        "projectPath": "C:\\Users\\47026404881.INFOSCS\\source\\repos\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
-        "packagesPath": "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\47026404881.INFOSCS\\source\\repos\\nota10.webApi\\nota10.webApi\\obj\\",
+        "projectPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+        "packagesPath": "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\47026404881.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\52645548890.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,24 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.16.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -49,6 +67,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.12, 5.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -57,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
