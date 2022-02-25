@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-function App() {
+import '../../assets/css/style.css';
+
+
+export default function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <div className="container container_header">
+          <nav className="nav_header">
+            <Link to="/MapaBrasil" className="redirecionamento_header zoom">localizacoes</Link>
+            <Link to="/Consultas" className="redirecionamento_header zoom">agendamento</Link>
+            <Link to="/ConsultasPaciente" className="redirecionamento_header zoom">consultas</Link>
+            <Link to="/Login" className="redirecionamento_header zoom">login</Link>
+          </nav>
+        </div>
       </header>
     </div>
   );
-}
-
-export default App;
+};
