@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\52645548890.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+        "projectName": "nota10.webApi",
+        "projectPath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+        "packagesPath": "C:\\Users\\43690999863.INFOSCS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\43690999863.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 826aa17caa110c4a12900bc0ea80437d1c4d3fd5
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,7 +120,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> 826aa17caa110c4a12900bc0ea80437d1c4d3fd5
         }
       }
     }

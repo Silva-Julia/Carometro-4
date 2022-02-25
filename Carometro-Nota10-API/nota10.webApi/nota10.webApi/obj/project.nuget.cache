@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Uqd4/N9yyXtXCyb/EY6DnZy6d9zuc/7X9kiocbnlrpdP/rzBQyCkKuTySWH2RnMB5dgSs/HuuoAcRID5LUfdLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
@@ -151,5 +152,11 @@
     "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "fPIjt4fg9jA/EB7WespLhd8gEhmAHODBfd+lW7Rx3SvFs5+1ght6YLZYZShtzO/chyuW8Du4d81vzjeoj3Lvgg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\43690999863.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 826aa17caa110c4a12900bc0ea80437d1c4d3fd5
   "logs": []
 }
