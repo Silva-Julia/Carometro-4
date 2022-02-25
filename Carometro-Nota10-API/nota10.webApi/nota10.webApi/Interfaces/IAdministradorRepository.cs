@@ -7,6 +7,6 @@ namespace nota10.webApi.Interfaces
 {
     interface IAdministradorRepository
     {
-
+        void CadastrarAluno();
     }
 }
