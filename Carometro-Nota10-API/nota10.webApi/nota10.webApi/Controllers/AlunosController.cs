@@ -95,8 +95,22 @@ namespace nota10.webApi.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult ExcluirAluno(int id)
         {
+            try
+            {
+                if (id != 0)
+                {
+                    _AlunoRepository.ExcluirAluno(id);
+                    return StatusCode(201);
+                }
+
+                return NotFound();
+            }
+            catch (Exception execp)
+            {
+               return BadRequest(execp);
+            }
         }
     }
 }
