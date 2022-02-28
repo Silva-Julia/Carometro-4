@@ -5,7 +5,7 @@ GO
 USE Carometro_Nota10;
 GO
 
-DROP DATABASE Carometro_Nota10
+DROP DATABASE Carometro_Nota10;
 
 ---DROP TABLE---
 DROP TABLE ALUNO;
@@ -48,7 +48,7 @@ CREATE TABLE USUARIO(
 	idUsuario SMALLINT PRIMARY KEY IDENTITY (1,1),
 	idTipoUsuario SMALLINT FOREIGN KEY REFERENCES TIPO_USUARIO(idTipoUsuario),
 	email VARCHAR(50) UNIQUE,
-	senha CHAR(32),
+	senha VARCHAR(61),
 	nomeUsuario VARCHAR(50),
 	fotoUsuario VARCHAR(200)
 
