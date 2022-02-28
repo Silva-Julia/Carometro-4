@@ -17,6 +17,7 @@ namespace nota10.webApi.Controllers
     [ApiController]
     public class AlunosController : ControllerBase
     {
+
         private readonly IAlunoRepository _AlunoRepository;
 
         public AlunosController(IAlunoRepository repo)
@@ -88,7 +89,7 @@ namespace nota10.webApi.Controllers
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut("Atualizar/Foto/{id}")]
+        [HttpPatch("Atualizar/Foto/{id}")]
         public IActionResult EditarFotoDoAluno(int id, [FromForm] IFormFile foto)
         {
             try
@@ -124,6 +125,25 @@ namespace nota10.webApi.Controllers
             catch (Exception execp)
             {
                return BadRequest(execp);
+            }
+        }
+
+        [HttpPut("Atualizar/Sala/{idAluno}/{idSala}")]
+        public IActionResult AtualizarSalaDoAluno(int idAluno, int idSala)
+        {
+            try
+            {
+                if (idAluno != 0)
+                {
+                    _AlunoRepository.MudarAlunoDeSala(idAluno, idSala);
+                    return StatusCode(200);
+                }
+
+                return NotFound(new { mensagem = "O Id do Aluno e da Sala não podem estar vazios !"});
+            }
+            catch (Exception execp)
+            {
+                return BadRequest(execp);
             }
         }
     }

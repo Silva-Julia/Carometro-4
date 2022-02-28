@@ -96,6 +96,7 @@ namespace nota10.webApi.Repositories
                 Rm = a.Rm,
                 Situacao = a.Situacao,
                 Telefone = a.Telefone,
+                IdSala = a.IdSala
 
             }).ToList();
         }
@@ -103,10 +104,11 @@ namespace nota10.webApi.Repositories
         public void MudarAlunoDeSala(int idAluno, int idSala)
         {
             Aluno alunoAchado = nota10Context.Alunos.FirstOrDefault(a => a.IdAluno == idAluno);
+            Sala salaAchada = nota10Context.Salas.FirstOrDefault(s => s.IdSala == idSala);
 
             if (alunoAchado != null)
             {
-                alunoAchado.IdSala = Convert.ToInt16(idSala);
+                alunoAchado.IdSala = Convert.ToInt16(salaAchada.IdSala);
 
                 nota10Context.Update(alunoAchado);
 

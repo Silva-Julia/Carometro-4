@@ -9,7 +9,6 @@ namespace nota10.webApi.Domains
     {
         public Usuario()
         {
-            Admistradors = new HashSet<Admistrador>();
             Professors = new HashSet<Professor>();
         }
 
@@ -21,7 +20,6 @@ namespace nota10.webApi.Domains
         public string FotoUsuario { get; set; }
 
         public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; }
-        public virtual ICollection<Admistrador> Admistradors { get; set; }
         public virtual ICollection<Professor> Professors { get; set; }
     }
 }

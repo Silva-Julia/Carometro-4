@@ -18,7 +18,6 @@ namespace nota10.webApi.Contexts
         {
         }
 
-        public virtual DbSet<Admistrador> Admistradors { get; set; }
         public virtual DbSet<Aluno> Alunos { get; set; }
         public virtual DbSet<Materium> Materia { get; set; }
         public virtual DbSet<Professor> Professors { get; set; }
@@ -37,23 +36,6 @@ namespace nota10.webApi.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
-
-            modelBuilder.Entity<Admistrador>(entity =>
-            {
-                entity.HasKey(e => e.IdAdministrador)
-                    .HasName("PK__ADMISTRA__EBE80EA137841202");
-
-                entity.ToTable("ADMISTRADOR");
-
-                entity.Property(e => e.IdAdministrador).HasColumnName("idAdministrador");
-
-                entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
-
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.Admistradors)
-                    .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__ADMISTRAD__idUsu__300424B4");
-            });
 
             modelBuilder.Entity<Aluno>(entity =>
             {
@@ -151,8 +133,6 @@ namespace nota10.webApi.Contexts
 
                 entity.Property(e => e.IdSala).HasColumnName("idSala");
 
-                entity.Property(e => e.IdAdministrador).HasColumnName("idAdministrador");
-
                 entity.Property(e => e.IdProfessor).HasColumnName("idProfessor");
 
                 entity.Property(e => e.NomeSala)
@@ -164,11 +144,6 @@ namespace nota10.webApi.Contexts
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("numeroSala");
-
-                entity.HasOne(d => d.IdAdministradorNavigation)
-                    .WithMany(p => p.Salas)
-                    .HasForeignKey(d => d.IdAdministrador)
-                    .HasConstraintName("FK__SALA__idAdminist__33D4B598");
 
                 entity.HasOne(d => d.IdProfessorNavigation)
                     .WithMany(p => p.Salas)

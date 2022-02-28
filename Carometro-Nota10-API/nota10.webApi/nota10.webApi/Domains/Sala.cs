@@ -14,11 +14,9 @@ namespace nota10.webApi.Domains
 
         public short IdSala { get; set; }
         public short? IdProfessor { get; set; }
-        public short? IdAdministrador { get; set; }
         public string NomeSala { get; set; }
         public string NumeroSala { get; set; }
 
-        public virtual Admistrador IdAdministradorNavigation { get; set; }
         public virtual Professor IdProfessorNavigation { get; set; }
         public virtual ICollection<Aluno> Alunos { get; set; }
     }
