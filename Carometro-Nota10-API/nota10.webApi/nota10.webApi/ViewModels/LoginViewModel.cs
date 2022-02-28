@@ -12,6 +12,7 @@ namespace nota10.webApi.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Informe o Email e a senha !")]
+        [StringLength(10,MinimumLength = 8)]
         public string Senha { get; set; }
     }
 }

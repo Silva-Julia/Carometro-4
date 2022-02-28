@@ -3,12 +3,8 @@ build_property.TargetFramework = net5.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.PublishSingleFile = 
+build_property.IncludeAllContentForSelfExtract = 
+build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = nota10.webApi
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\
-=======
-build_property.ProjectDir = C:\Users\43690999863.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\
->>>>>>> 826aa17caa110c4a12900bc0ea80437d1c4d3fd5
+build_property.ProjectDir = C:\Users\Vinicius\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\
