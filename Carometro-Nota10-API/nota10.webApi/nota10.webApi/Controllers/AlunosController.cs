@@ -24,15 +24,21 @@ namespace nota10.webApi.Controllers
         }
 
 
+        [HttpGet("Buscar")]
+        public IActionResult ListarAlunos()
+        {
+            try
+            {
+                 return Ok(_AlunoRepository.ListarAlunos());
+            }
+            catch (Exception execp)
+            {
 
-        // GET: api/<ValuesController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+                return BadRequest(execp);
 
-        // GET api/<ValuesController>/5
+            }
+        }
+        
         [HttpGet("Buscar/Nome")]
         public IActionResult BuscarAlunoPeloNome(string nomeAluno)
         {
