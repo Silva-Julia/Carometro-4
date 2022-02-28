@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using nota10.webApi.Contexts;
 using nota10.webApi.Domains;
 using nota10.webApi.Interfaces;
@@ -87,14 +88,27 @@ namespace nota10.webApi.Controllers
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, string value)
+        [HttpPut("Atualizar/Foto/{id}")]
+        public IActionResult EditarFotoDoAluno(int id, [FromForm] IFormFile foto)
         {
+            try
+            {
+                if (foto != null && !(id == 0))
+                {
+                    _AlunoRepository.EditarFotoDoAluno(id, foto);
+                    return StatusCode(200);
+                }
 
+                return BadRequest(new { mensagem = "Uma foto deve ser colocada." });
+            }
+            catch (Exception execp)
+            {
+                return BadRequest(execp);
+            }
         }
 
         // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Excluir/{id}")]
         public IActionResult ExcluirAluno(int id)
         {
             try
