@@ -33,10 +33,23 @@ namespace nota10.webApi.Controllers
         //}
 
         // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("Buscar/Nome")]
+        public IActionResult BuscarAlunoPeloNome(string nomeAluno)
         {
-            return "value";
+            try
+            {
+                if (nomeAluno != null)
+                {
+                   return Ok(_AlunoRepository.BuscarAlunoPeloNome(nomeAluno));
+                }
+
+                return BadRequest(new { mensagem = "O nome do aluno está vazio !"});
+            }
+            catch (Exception execp)
+            {
+
+                return BadRequest(execp);
+            }
         }
 
         // POST api/<ValuesController>
@@ -69,8 +82,9 @@ namespace nota10.webApi.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, string value)
         {
+
         }
 
         // DELETE api/<ValuesController>/5

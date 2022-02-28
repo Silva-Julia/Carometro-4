@@ -15,7 +15,7 @@ namespace nota10.webApi.Repositories
     {
 
         private readonly Nota10Context nota10Context;
-        
+
         public AlunoRepository(Nota10Context appContext)
         {
             nota10Context = appContext;
@@ -26,15 +26,16 @@ namespace nota10.webApi.Repositories
 
             return nota10Context.Alunos
                  .Where(a => a.NomeAluno == nomeAluno)
-                 .Select(a => new Aluno { 
-                    
+                 .Select(a => new Aluno
+                 {
+
                      IdAluno = a.IdAluno,
                      NomeAluno = a.NomeAluno,
                      FotoDoPerfil = a.FotoDoPerfil,
                      Rm = a.Rm,
                      Situacao = a.Situacao,
                      Telefone = a.Telefone,
-                 
+
                  }).ToArray();
         }
 
@@ -56,24 +57,61 @@ namespace nota10.webApi.Repositories
             nota10Context.SaveChanges();
         }
 
-        public void EditarFotoDoAluno(Aluno AlunoAtualizado)
+        public void EditarFotoDoAluno(int idAluno, IFormFile foto)
         {
-            throw new NotImplementedException();
+            Aluno alunoAchado = nota10Context.Alunos.FirstOrDefault(a => a.IdAluno == idAluno);
+
+            if (alunoAchado != null)
+            {
+                alunoAchado.FotoDoPerfil = ImagemParaBase64.TransFormarImagemBase64(foto);
+
+                nota10Context.Update(alunoAchado);
+
+                nota10Context.SaveChanges();
+            }
         }
 
         public void ExcluirAluno(int idAluno)
         {
-            throw new NotImplementedException();
+            Aluno alunoAchado = nota10Context.Alunos.FirstOrDefault(a => a.IdAluno == idAluno);
+
+            if (alunoAchado != null)
+            {
+                nota10Context.Remove(alunoAchado);
+
+                nota10Context.SaveChanges();
+            }
+
         }
 
         public List<Aluno> ListarAlunos()
         {
-            throw new NotImplementedException();
+            return nota10Context.Alunos
+            .Select(a => new Aluno
+            {
+
+                IdAluno = a.IdAluno,
+                NomeAluno = a.NomeAluno,
+                FotoDoPerfil = a.FotoDoPerfil,
+                Rm = a.Rm,
+                Situacao = a.Situacao,
+                Telefone = a.Telefone,
+
+            }).ToList();
         }
 
         public void MudarAlunoDeSala(int idAluno, int idSala)
         {
-            throw new NotImplementedException();
+            Aluno alunoAchado = nota10Context.Alunos.FirstOrDefault(a => a.IdAluno == idAluno);
+
+            if (alunoAchado != null)
+            {
+                alunoAchado.IdSala = Convert.ToInt16(idSala);
+
+                nota10Context.Update(alunoAchado);
+
+                nota10Context.SaveChanges();
+            }
         }
     }
 }

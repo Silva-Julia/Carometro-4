@@ -26,7 +26,7 @@ namespace nota10.webApi.Interfaces
         /// Atualiza a foto do aluno
         /// </summary>
         /// <param name="AlunoAtualizado">Objeto com a nova foto do aluno</param>
-        void EditarFotoDoAluno(Aluno AlunoAtualizado);
+        void EditarFotoDoAluno(int idAluno,IFormFile fotoAluno);
 
         /// <summary>
         /// Atualiza a sala na qual o aluno se encontra
