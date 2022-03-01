@@ -4,6 +4,7 @@ import { parseJwt, usuarioAutenticado } from '../../Services/auth';
 import { Component } from 'react';
 import "../../assets/css/style.css";
 import setinha from '../../assets/img/setinha.png';
+import logo from '../../assets/img/LogoNota.png'
 
 
 export default class Login extends Component {
@@ -22,7 +23,7 @@ export default class Login extends Component {
 
         this.setState({ erroMensagem: '', isLoading: true });
 
-        axios.post('https://62192e5981d4074e85a418b3.mockapi.io/Usuario', {
+        axios.post('', {
             emailUsuario: this.state.email,
             senhaUsuario: this.state.senha,
 
@@ -60,6 +61,7 @@ export default class Login extends Component {
             <div>
                 <section>
                             <div className="conteudo_login">
+                                <img src={logo} className='logo' />
                                 <div className="caixa_login">
                                     <form className="formulario_login" onSubmit={this.efetuarLogin}>
                                         <input className="input_login" type="email" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.atualizaStateCampo} />
