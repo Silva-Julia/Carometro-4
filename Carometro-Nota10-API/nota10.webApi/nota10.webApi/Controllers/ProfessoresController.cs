@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using nota10.webApi.Domains;
 using nota10.webApi.Interfaces;
 using System;
@@ -20,6 +21,7 @@ namespace nota10.webApi.Controllers
         }
 
         // POST api/<ProfessoresController>
+        [Authorize(Roles = "2")]
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarProfessor(Professor novoProfessor)
         {
