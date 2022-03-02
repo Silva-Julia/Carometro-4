@@ -51,6 +51,7 @@ namespace nota10.webApi
 
             services.AddTransient<DbContext, Nota10Context>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IProfessorRepository, ProfessorRepository>();
             services.AddTransient<IAlunoRepository, AlunoRepository>();
 
         }
