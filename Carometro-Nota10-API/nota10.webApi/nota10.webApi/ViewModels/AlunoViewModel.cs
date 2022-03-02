@@ -14,6 +14,6 @@ namespace nota10.webApi.ViewModels
         public string Rm { get; set; }
         public string Telefone { get; set; }
         public IFormFile FotoDePerfil { get; set; }
-        public string Situacao { get; set; }
+        public bool Situacao { get; set; }
     }
 }

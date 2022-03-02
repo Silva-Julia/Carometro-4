@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using nota10.webApi.Domains;
 using nota10.webApi.Interfaces;
 using System;
 
@@ -34,8 +35,22 @@ namespace nota10.webApi.Controllers
 
         // POST api/<SalasController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult CadastrarSala(Sala novaSala)
         {
+            try
+            {
+                if (novaSala != null)
+                {
+                    _salaRepository.CriarSala(novaSala);
+                    return StatusCode(201);
+                }
+
+                return BadRequest(new { mensagem = "Todos os campos de sala devem estar preenchidos !" });
+            }
+            catch (Exception excep)
+            {
+                return BadRequest(excep);
+            }
         }
     }
 }

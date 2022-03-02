@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -14,7 +13,7 @@ namespace nota10.webApi.Domains
         public string Rm { get; set; }
         public string Telefone { get; set; }
         public string FotoDoPerfil { get; set; }
-        public string Situacao { get; set; }
+        public bool? Situacao { get; set; }
 
         public virtual Sala IdSalaNavigation { get; set; }
     }
