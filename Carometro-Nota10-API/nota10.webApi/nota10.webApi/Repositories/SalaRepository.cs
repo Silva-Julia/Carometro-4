@@ -23,5 +23,31 @@ namespace nota10.webApi.Repositories
 
             nota10Context.SaveChanges();
         }
+
+        public List<Sala> ListarSalas()
+        {
+            return nota10Context.Salas
+                .Select(
+                s =>  new Sala
+                {
+                    NomeSala = s.NomeSala,
+                    IdProfessor = s.IdProfessor,
+                    IdSala = s.IdSala,
+                    NumeroSala = s.NumeroSala,
+                    IdProfessorNavigation = new Professor 
+                    {
+                       IdProfessor = s.IdProfessorNavigation.IdProfessor,
+                       IdUsuarioNavigation = new Usuario
+                       {
+                           NomeUsuario = s.IdProfessorNavigation.IdUsuarioNavigation.NomeUsuario
+                       },
+                       IdMateriaNavigation = new Materium
+                       { 
+                           NomeMateria = s.IdProfessorNavigation.IdMateriaNavigation.NomeMateria
+                       }
+                    }
+                }
+                ).ToList();
+        }
     }
 }
