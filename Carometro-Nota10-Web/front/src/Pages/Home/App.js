@@ -39,21 +39,21 @@ useEffect(salasDisponiveis, [])
         </div>
       </header>
       <main>
-      <div className='container_salas'>
-        {
-            listaSalas.map((event) => {
-              console.log(event)
-                return(
-                  <div className='box_sala container'>
-                    <div className='box_titulo'>
-                      <span>Sala: {event.nomeSala}</span>
+        <div className='container_salas'>
+          {
+              listaSalas.map((event) => {
+                console.log(event)
+                  return(
+                    <div className='box_sala container'>
+                      <div className='box_titulo'>
+                        <span>Sala: </span>
+                      </div>
+                      <img src={setinha} />
                     </div>
-                    <img src={setinha} />
-                  </div>
-                )
-            })
-          }
-        </div>
+                  )
+              })
+            }
+          </div>
       </main>
     </div>
   );

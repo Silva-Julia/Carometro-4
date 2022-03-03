@@ -322,3 +322,4 @@ C:\Users\47026404881.INFOSCS\Documents\Carometro-4\Carometro-Nota10-API\nota10.w
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.csproj.CopyComplete
 >>>>>>> 1c9da35309f4bb80a831b33ff88967e137493f50
+C:\Users\47026404881.INFOSCS\Documents\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

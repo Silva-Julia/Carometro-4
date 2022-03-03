@@ -116,7 +116,7 @@ namespace nota10.webApi
 
             app.UseAuthorization();
             
-            app.UseAuthentication();//403
+            app.UseAuthentication();
 
 
             app.UseEndpoints(endpoints =>
