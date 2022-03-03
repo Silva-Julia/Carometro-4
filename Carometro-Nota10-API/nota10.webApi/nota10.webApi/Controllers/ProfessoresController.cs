@@ -1,43 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using nota10.webApi.Domains;
+using nota10.webApi.Interfaces;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace nota10.webApi.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProfessoresController : ControllerBase
     {
-        // GET: api/<ProfessoresController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        private readonly IProfessorRepository _professorRepository;
 
-        // GET api/<ProfessoresController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public ProfessoresController(IProfessorRepository repo)
         {
-            return "value";
+            _professorRepository = repo;
         }
 
         // POST api/<ProfessoresController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [Authorize(Roles = "2")]
+        [HttpPost("Cadastrar")]
+        public IActionResult CadastrarProfessor(Professor novoProfessor)
         {
-        }
+            try
+            {
+                if (novoProfessor != null)
+                {
+                    _professorRepository.CadastrarProfessor(novoProfessor);
+                    return StatusCode(201);
+                }
 
-        // PUT api/<ProfessoresController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProfessoresController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                return BadRequest(new {mensagem = "Professor não pode estar vazio" });
+            }
+            catch (Exception excep)
+            {
+                return BadRequest(excep);
+            }   
         }
     }
 }

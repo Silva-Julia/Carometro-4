@@ -11,6 +11,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login/login';
 import Home from './Pages/Home/App';
+import Carometro from './Pages/Carometro/carometro';
 
 
 
@@ -19,8 +20,9 @@ const routing = (
   <Router>
     <div>
       <Switch>
-        <Route exact patch="/" component={Login}/>
-        <Route patch="/Login" component={Login}/>
+        <Route exact path="/" component={Login}/>
+        <Route path="/Login" component={Login}/>
+        <Route path="/Carometro" component={Carometro}/>
       </Switch>
     </div>
   </Router>

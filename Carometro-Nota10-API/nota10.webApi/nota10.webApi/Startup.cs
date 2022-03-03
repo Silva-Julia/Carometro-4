@@ -1,20 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using nota10.webApi.Contexts;
 using nota10.webApi.Interfaces;
 using nota10.webApi.Repositories;
+using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace nota10.webApi
 {
@@ -60,8 +56,46 @@ namespace nota10.webApi
                              options.UseSqlServer(Configuration.GetConnectionString("Default"))
                          );
 
+            services
+                .AddAuthentication(option =>
+                {
+                    option.DefaultAuthenticateScheme = "JwtBearer";
+                    option.DefaultChallengeScheme = "JwtBearer";
+                }
+                )
+
+                .AddJwtBearer("JwtBearer", options =>
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+
+                    // será validado emissor do token
+                    ValidateIssuer = true,
+
+                    //será validade endereço do token
+                    ValidateAudience = true,
+
+                    //será vailidado tempo do token
+                    ValidateLifetime = true,
+
+                    //definição da chave de segurança
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("ASDFÇAJSÇDF-LAJSDFJAÇKFD-ADJFKAJÇKSDFJ")),
+
+                    //define o tempo de expiração
+                    ClockSkew = TimeSpan.FromHours(1),
+
+                    //nome de emissor
+                    ValidIssuer = "nota10.webApi",
+
+                    //nome do destinatário
+                    ValidAudience = "nota10.webApi"
+                }
+                );
+
+
             services.AddTransient<DbContext, Nota10Context>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<ISalaRepository, SalaRepository>();
+            services.AddTransient<IProfessorRepository, ProfessorRepository>();
             services.AddTransient<IAlunoRepository, AlunoRepository>();
 
         }
@@ -81,6 +115,9 @@ namespace nota10.webApi
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseAuthentication();//403
+
 
             app.UseEndpoints(endpoints =>
             {
