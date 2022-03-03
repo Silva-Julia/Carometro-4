@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.container_fundo {
+    background-image: url(../../assets/img/linhas_fundo.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.imagem_logo{
+    height: 120px;
+    width: 300px;
+}
+
+.container_foto{
+    height: 340px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.contaier_foto_editar{
+    display: flex;
+    flex-direction: column;
+}
