@@ -11,6 +11,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login/login';
 import Home from './Pages/Home/App';
+import Perfil from './Pages/Perfil/perfil';
 
 
 
@@ -19,7 +20,7 @@ const routing = (
   <Router>
     <div>
       <Switch>
-        <Route exact patch="/" component={Login}/>
+        <Route exact patch="/" component={Perfil}/>
         <Route patch="/Login" component={Login}/>
       </Switch>
     </div>
