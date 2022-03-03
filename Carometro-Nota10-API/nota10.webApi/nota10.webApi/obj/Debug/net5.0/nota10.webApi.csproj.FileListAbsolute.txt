@@ -244,3 +244,5 @@ C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webAp
 C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.pdb
 C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.genruntimeconfig.cache
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\nota10.webApi.StaticWebAssets.xml
+C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.csproj.CopyComplete

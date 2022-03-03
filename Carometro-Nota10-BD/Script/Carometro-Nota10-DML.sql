@@ -19,9 +19,9 @@ VALUES (3, 1, '11111111111'), (4, 2, '22222222222')
 GO
 
 INSERT INTO SALA(idProfessor, nomeSala, numeroSala)
-VALUES (1,'2º', 'Sala 12'), (2,'3º', 'Sala 17')
+VALUES (1,'2º', 12), (2,'3º',  17)
 GO
 
 INSERT INTO ALUNO(idSala, nomeAluno, rm, telefone, fotoDoPerfil, situacao)
-VALUES (1, 'Raul', '1111', '11999999999', 'foto', 'aprovado'), (2, 'Julia', '2222', '11988888888', 'foto', 'aprovado')
+VALUES (1, 'Raul', '1111', '11999999999', 'foto', 0), (2, 'Julia', '2222', '11988888888', 'foto', 1)
 GO

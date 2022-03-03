@@ -1,43 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using nota10.webApi.Domains;
+using nota10.webApi.Interfaces;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace nota10.webApi.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class SalasController : ControllerBase
     {
-        //// GET: api/<SalasController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        private readonly ISalaRepository _salaRepository;
+
+        public SalasController(ISalaRepository repo)
+        {
+            _salaRepository = repo;
+        }
 
         // GET api/<SalasController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("Listar")]
+        public IActionResult ListarSalas()
         {
-            return "value";
+            try
+            {
+                return Ok(_salaRepository.ListarSalas());
+            }
+            catch (Exception excep)
+            {
+                return BadRequest(excep);
+            }
         }
 
         // POST api/<SalasController>
+        [Authorize(Roles = "2")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult CadastrarSala(Sala novaSala)
         {
-        }
+            try
+            {
+                if (novaSala != null)
+                {
+                    _salaRepository.CriarSala(novaSala);
+                    return StatusCode(201);
+                }
 
-        // PUT api/<SalasController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<SalasController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                return BadRequest(new { mensagem = "Todos os campos de sala devem estar preenchidos !" });
+            }
+            catch (Exception excep)
+            {
+                return BadRequest(excep);
+            }
         }
     }
 }
