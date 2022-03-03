@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JgWVkG3eEuHJ5yjWcI+kFcW+b/gMDLI0nQjtIhsPtixdWHz9af9Q0f7v7F2o+TUZbI6038aNZGLr+uGRKtkImA==",
+  "dgSpecHash": "+ydah0yMi0ItDsq3P8iQp2tHw4EsatXjRiv1+ZcUY3dX14FzwWtcJ47BsUl5Lbzd/0Rt1IgEyfBXnOeDZvL6CQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\47026404881.INFOSCS\\Documents\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.14\\microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.14\\microsoft.aspnetcore.jsonpatch.5.0.14.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.14\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.14.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -33,8 +34,8 @@
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identity.client\\4.14.0\\microsoft.identity.client.4.14.0.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.16.0\\microsoft.identitymodel.jsonwebtokens.6.16.0.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.logging\\6.16.0\\microsoft.identitymodel.logging.6.16.0.nupkg.sha512",
-    "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.6.0\\microsoft.identitymodel.protocols.5.6.0.nupkg.sha512",
-    "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\5.6.0\\microsoft.identitymodel.protocols.openidconnect.5.6.0.nupkg.sha512",
+    "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.16.0\\microsoft.identitymodel.tokens.6.16.0.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
@@ -150,5 +151,12 @@
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\47026404881.INFOSCS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\47026404881.INFOSCS\\Documents\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

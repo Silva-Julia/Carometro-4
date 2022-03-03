@@ -41,14 +41,14 @@ namespace nota10.webApi.Controllers
             }
         }
         
-        [HttpGet("Buscar/Nome")]
-        public IActionResult BuscarAlunoPeloNome(string nomeAluno)
+        [HttpGet("Buscar/{nome}")]
+        public IActionResult BuscarAlunoPeloNome(string nome)
         {
             try
             {
-                if (nomeAluno != null)
+                if (nome != null)
                 {
-                   return Ok(_AlunoRepository.BuscarAlunoPeloNome(nomeAluno));
+                   return Ok(_AlunoRepository.BuscarAlunoPeloNome(nome));
                 }
 
                 return BadRequest(new { mensagem = "O nome do aluno está vazio !"});
