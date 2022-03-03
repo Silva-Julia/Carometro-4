@@ -7756,19 +7756,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theus\\.nuget\\packages\\": {}
+    "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+      "projectUniqueName": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
       "projectName": "nota10.webApi",
-      "projectPath": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
-      "packagesPath": "C:\\Users\\theus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
+      "projectPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+      "packagesPath": "C:\\Users\\52645548890.INFOSCS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\52645548890.INFOSCS\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\52645548890.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7843,6 +7843,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.12, 5.0.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7851,7 +7857,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

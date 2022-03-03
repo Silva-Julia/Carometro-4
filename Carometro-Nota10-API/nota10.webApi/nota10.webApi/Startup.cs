@@ -39,6 +39,17 @@ namespace nota10.webApi
                   options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
               });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("*")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "nota10.webApi", Version = "v1" });
@@ -64,6 +75,8 @@ namespace nota10.webApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "nota10.webApi v1"));
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 

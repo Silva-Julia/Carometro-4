@@ -97,7 +97,6 @@ C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.web
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
-C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.csproj.CopyComplete
 C:\Users\Vinicius\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Vinicius\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\appsettings.json
 C:\Users\Vinicius\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\nota10.webApi.exe
@@ -244,3 +243,4 @@ C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webAp
 C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\ref\nota10.webApi.dll
 C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.pdb
 C:\Users\theus\OneDrive\Documentos\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\obj\Debug\net5.0\nota10.webApi.genruntimeconfig.cache
+C:\Users\52645548890.INFOSCS\Desktop\Carometro-4\Carometro-Nota10-API\nota10.webApi\nota10.webApi\bin\Debug\net5.0\nota10.webApi.StaticWebAssets.xml

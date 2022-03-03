@@ -4,6 +4,7 @@ import logo from '../../assets/img/LogoNota.png'
 import '../../assets/css/style.css';
 import setinha from '../../assets/img/setinha.png';
 import Navbar from '../../components/Header/NavBar';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
 
