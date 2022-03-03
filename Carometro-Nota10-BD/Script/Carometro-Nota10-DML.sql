@@ -18,12 +18,8 @@ INSERT INTO PROFESSOR(idUsuario, idMateria, cfpe)
 VALUES (3, 1, '11111111111'), (4, 2, '22222222222')
 GO
 
-INSERT INTO ADMISTRADOR(idUsuario)
-VALUES (1), (2)
-GO
-
-INSERT INTO SALA(idProfessor, idAdministrador, nomeSala, numeroSala)
-VALUES (1, 1, '2º', 'Sala 12'), (2, 2, '3º', 'Sala 17')
+INSERT INTO SALA(idProfessor, nomeSala, numeroSala)
+VALUES (1,'2º', 'Sala 12'), (2,'3º', 'Sala 17')
 GO
 
 INSERT INTO ALUNO(idSala, nomeAluno, rm, telefone, fotoDoPerfil, situacao)
