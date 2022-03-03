@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/img/LogoNota.png'
 import '../../assets/css/style.css';
 import setinha from '../../assets/img/setinha.png';
-
+import Navbar from '../../components/Header/NavBar';
 
 export default function Home() {
 
@@ -29,19 +29,15 @@ export default function Home() {
 
 useEffect(salasDisponiveis, [])
 
-
   return (
     <div>
       <header>
         <div className="container container_header">
-        <Link to="/" className="header_logo"><img className="logo" src={logo} alt="logo"/></Link>
-          <nav className="nav_header">
-            <Link to="/Login" className="redirecionamento_header zoom">login</Link>
-          </nav>
+          <Navbar/>
         </div>
       </header>
       <main>
-        {
+      {
           listaSalas.map((event) => {
             console.log(event)
               return(
