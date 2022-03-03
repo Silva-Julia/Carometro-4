@@ -12,7 +12,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
 
   function salasDisponiveis(){
-    axios.get('', {
+    axios.get('http://localhost:5000/api/Salas/Listar', {
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
         }
@@ -30,6 +30,7 @@ export default function Home() {
 
 useEffect(salasDisponiveis, [])
 
+
   return (
     <div>
       <header>
@@ -38,19 +39,21 @@ useEffect(salasDisponiveis, [])
         </div>
       </header>
       <main>
-      {
-          listaSalas.map((event) => {
-            console.log(event)
-              return(
-                <div className='box_sala container'>
-                  <div className='box_titulo'>
-                    <span>Sala: 1</span>
+      <div className='container_salas'>
+        {
+            listaSalas.map((event) => {
+              console.log(event)
+                return(
+                  <div className='box_sala container'>
+                    <div className='box_titulo'>
+                      <span>Sala: {event.nomeSala}</span>
+                    </div>
+                    <img src={setinha} />
                   </div>
-                  <img src={setinha} />
-                </div>
-              )
-          })
-        }
+                )
+            })
+          }
+        </div>
       </main>
     </div>
   );

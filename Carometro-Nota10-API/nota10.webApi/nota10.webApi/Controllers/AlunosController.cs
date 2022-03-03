@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using nota10.webApi.Contexts;
 using nota10.webApi.Domains;
@@ -24,7 +25,6 @@ namespace nota10.webApi.Controllers
         {
             _AlunoRepository = repo;
         }
-
 
         [HttpGet("Buscar")]
         public IActionResult ListarAlunos()
@@ -61,6 +61,7 @@ namespace nota10.webApi.Controllers
         }
 
         // POST api/<ValuesController>
+        [Authorize(Roles = "2")]
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarAluno([FromForm] AlunoViewModel alunoViewModel)
         {
@@ -89,6 +90,7 @@ namespace nota10.webApi.Controllers
         }
 
         // PUT api/<ValuesController>/5
+        [Authorize(Roles = "2")]
         [HttpPatch("Atualizar/Foto/{id}")]
         public IActionResult EditarFotoDoAluno(int id, [FromForm] IFormFile foto)
         {
@@ -109,6 +111,7 @@ namespace nota10.webApi.Controllers
         }
 
         // DELETE api/<ValuesController>/5
+        [Authorize(Roles = "2")]
         [HttpDelete("Excluir/{id}")]
         public IActionResult ExcluirAluno(int id)
         {
@@ -128,6 +131,7 @@ namespace nota10.webApi.Controllers
             }
         }
 
+        [Authorize(Roles = "2")]
         [HttpPut("Atualizar/Sala/{idAluno}/{idSala}")]
         public IActionResult AtualizarSalaDoAluno(int idAluno, int idSala)
         {
