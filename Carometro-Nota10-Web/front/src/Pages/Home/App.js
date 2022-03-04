@@ -5,30 +5,35 @@ import '../../assets/css/style.css';
 import setinha from '../../assets/img/setinha.png';
 import Navbar from '../../components/Header/NavBar';
 import { useState, useEffect } from 'react';
+import Sidebar from '../../components/SideBar/SideBar';
 
 export default function Home() {
 
   const [ listaSalas, setListaSalas ] = useState( [] )
   const [isLoading, setIsLoading] = useState(false)
 
-  function salasDisponiveis(){
+
+
+  function ListarSalas() {
     axios.get('http://localhost:5000/api/Salas/Listar', {
-        headers : {
-            'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+        headers: {
+
+            Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
         }
-    } )
+    }
+    )
 
-    .then(resposta => {
-        if(resposta.status === 200){
-
+    .then((resposta) => {
+        if(resposta.status == 200) {
             setListaSalas(resposta.data)
-            console.log(listaSalas)
+            console.log(resposta)
         }
     })
+
     .catch(erro => console.log(erro))
 }
 
-useEffect(salasDisponiveis, [])
+useEffect(ListarSalas, [])
 
 
   return (
@@ -39,16 +44,20 @@ useEffect(salasDisponiveis, [])
         </div>
       </header>
       <main>
-        <div className='container_salas'>
+        <div className='container container_salas'>
           {
               listaSalas.map((event) => {
                 console.log(event)
                   return(
-                    <div className='box_sala container'>
+                    <div className='box_sala'>
                       <div className='box_titulo'>
-                        <span>Sala: </span>
+                        <span>Turma: {event.nomeSala}</span>
                       </div>
-                      <img src={setinha} />
+                      <div className='box_body'>
+                        <span>Sala: {event.numeroSala}</span>
+                        <span>Professor: {event.idProfessorNavigation.idProfessor} </span>
+                      </div>
+                      <button className='btn_redirect'><img src={setinha} /></button>
                     </div>
                   )
               })

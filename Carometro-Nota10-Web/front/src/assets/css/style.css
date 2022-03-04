@@ -4,12 +4,15 @@
     padding: 0;
 }
 
-main{
+body{
  background-image: url(../img/linhas_fundo.png);
+}
+main{
+    margin-top: 14vh;
 }
 
 .container {
-    width: 1100px;
+    width: 800px;
     margin: 0 auto;
 }
 
@@ -88,6 +91,7 @@ main{
 .container_header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
@@ -220,3 +224,42 @@ header{
 }
 
 /* ==============================   LOGIN   ===============================================    */
+
+
+/* ==============================   HOME   ===============================================    */
+
+.btn_redirect{
+    background-color: transparent;
+    border: none;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+}
+.container_salas{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.box_sala{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    background-color: #0D2538;
+    border-radius: 20px;
+    margin-bottom: 2vh;
+    padding: 20px;
+}
+.box_titulo{
+    font-size: 24px;
+    color: #F5F5F5;
+}
+.box_body{
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==============================   HOME   ===============================================    */

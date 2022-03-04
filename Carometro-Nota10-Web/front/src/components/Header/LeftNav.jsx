@@ -18,7 +18,7 @@ const Ul = styled.ul`
     top: 0;
     right: 0;
     height: 100vh;
-    width: 300px;
+    width: 400px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     li {
@@ -29,7 +29,7 @@ const Ul = styled.ul`
     .icon_foto{
       height: 70px;
       width: 70px;
-      padding: 45px 10px 0 55px;
+      margin: 45px 10px 0 55px;
     }
     .box_userName{
       display: flex;
