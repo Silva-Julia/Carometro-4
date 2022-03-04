@@ -263,3 +263,64 @@ header{
 }
 
 /* ==============================   HOME   ===============================================    */
+
+
+/* ==============================   CAROMETRO   ===============================================    */
+
+.imagem_logo{
+    height: 120px;
+    width: 300px;
+}
+
+.container_foto{
+    display: flex;
+    flex-direction: column;
+}
+
+.pesquisa{
+    background-image: url(../img/lupa.png);
+}
+
+.pesquisa input{
+    width: 50px;
+    color: black;
+}
+
+.container_alunos{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.box_aluno{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 13px;
+    margin-bottom: 2vh;
+    padding: 20px;
+}
+
+.foto_aluno{
+    width: 50%;
+}
+
+.nome_aluno{
+    color: black;
+    font-size: 24px;
+}
+
+.situacao_aluno{
+    font-size: 24px;
+}
+
+.seta{
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+/* ==============================   CAROMETRO   ===============================================    */
