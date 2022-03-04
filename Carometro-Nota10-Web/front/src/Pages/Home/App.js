@@ -2,10 +2,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/img/LogoNota.png'
 import '../../assets/css/style.css';
-import setinha from '../../assets/img/setinha.png';
+import SetinhaBranca from '../../assets/img/SetinhaBranca.png';
 import Navbar from '../../components/Header/NavBar';
 import { useState, useEffect } from 'react';
-import SideBar2 from '../../components/SideBar/SideBar2';
+
 
 export default function Home() {
 
@@ -40,7 +40,7 @@ useEffect(ListarSalas, [])
     <div>
       <header>
         <div className="container container_header">
-          <SideBar2/>
+          <Navbar/>
         </div>
       </header>
       <main>
@@ -51,13 +51,13 @@ useEffect(ListarSalas, [])
                   return(
                     <div className='box_sala'>
                       <div className='box_titulo'>
-                        <span>Turma: {event.nomeSala}</span>
+                        <span>Turma {event.nomeSala}</span>
                       </div>
                       <div className='box_body'>
-                        <span>Sala: {event.numeroSala}</span>
-                        <span>Professor: {event.idProfessorNavigation.idProfessor} </span>
+                        <span> {event.numeroSala}</span>
+                        <span>Professor {event.idProfessorNavigation.idUsuarioNavigation.nomeUsuario} </span>
                       </div>
-                      <button className='btn_redirect'><img src={setinha} /></button>
+                      <button className='btn_redirect'><img  src={SetinhaBranca}/></button>
                     </div>
                   )
               })

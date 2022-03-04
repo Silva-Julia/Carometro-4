@@ -248,6 +248,10 @@ header {
     justify-content: right;
 }
 
+.btn_redirect img{
+    height: 80px;
+}
+
 .container_salas {
     display: flex;
     justify-content: space-between;
