@@ -1,13 +1,14 @@
-*{
+* {
     box-sizing: 0;
     margin: 0;
     padding: 0;
 }
 
-body{
- background-image: url(../img/linhas_fundo.png);
+body {
+    background-image: url(../img/linhas_fundo.png);
 }
-main{
+
+main {
     margin-top: 14vh;
 }
 
@@ -26,9 +27,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modalContainer {
+}
+
+.modalContainer {
     width: 500px;
     height: 500px;
     border-radius: 12px;
@@ -37,36 +38,36 @@ main{
     display: flex;
     flex-direction: column;
     padding: 25px;
-  }
-  
-  .modalContainer .title {
+}
+
+.modalContainer .title {
     display: inline-block;
     text-align: center;
     margin-top: 10px;
-  }
-  
-  .titleCloseBtn {
+}
+
+.titleCloseBtn {
     display: flex;
     justify-content: flex-end;
-  }
-  
-  .titleCloseBtn button {
+}
+
+.titleCloseBtn button {
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
-  }
-  
+}
 
-  
-  .modalContainer .openBtn {
+
+
+.modalContainer .openBtn {
     flex: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modalContainer .openBtn button {
+}
+
+.modalContainer .openBtn button {
     width: 150px;
     height: 45px;
     margin: 10px;
@@ -76,11 +77,11 @@ main{
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
-  }
-  
-  #cancelBtn {
+}
+
+#cancelBtn {
     background-color: crimson;
-  }
+}
 
 /* ==============================   MODAL   ===============================================    */
 
@@ -88,14 +89,14 @@ main{
 
 /* ==============================   HEADER   ===============================================    */
 
-.container_header{
+.container_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
 }
 
-header{
+header {
     width: 100%;
     height: 11vh;
     position: fixed;
@@ -103,14 +104,16 @@ header{
     top: 0;
     border-bottom: 1px solid #2C344F;
     background-image: url(../img/linhas_fundo.png);
-    
-    
+
+
 }
-.header_logo{
+
+.header_logo {
     display: flex;
     align-items: center;
 }
-.nav_header{
+
+.nav_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,7 +121,8 @@ header{
     height: 100%;
     width: 40vw;
 }
-.redirecionamento_header{
+
+.redirecionamento_header {
     color: #2C344F;
 
     font-size: 1.2vw;
@@ -126,25 +130,27 @@ header{
     text-transform: uppercase;
     text-decoration: none;
 }
+
 /* ==============================   HEADER   ===============================================    */
 
 
 /* ==============================   LOGIN   ===============================================    */
 
-.login{
+.login {
     display: flex;
     height: 100vh;
 }
-.banner_login{
+
+.banner_login {
     width: 100%;
     height: 100%;
 
     opacity: 80%;
-    box-shadow: 12px 10px 35px -10px rgba(0,0,0,0.75);
+    box-shadow: 12px 10px 35px -10px rgba(0, 0, 0, 0.75);
 }
 
 
-.conteudo_login{
+.conteudo_login {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -152,13 +158,15 @@ header{
     justify-content: space-around;
     background-image: url(../img/Banner_login.png);
     background-size: cover;
-    
+
 }
-.logo_login{
+
+.logo_login {
     width: 11vw;
     height: 10vw;
 }
-.caixa_login{
+
+.caixa_login {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -166,7 +174,8 @@ header{
     width: 42vw;
     height: 35vw;
 }
-.formulario_login input{
+
+.formulario_login input {
     width: 30vw;
     height: 4vw;
     padding-left: 30px;
@@ -176,14 +185,15 @@ header{
     border: 0;
     border-bottom: #F5F5F5 2px solid;
     outline: 0;
-    
+
 }
-.formulario_login input::placeholder{
+
+.formulario_login input::placeholder {
     color: #fff;
 
 }
 
-.botao_login{
+.botao_login {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -193,7 +203,7 @@ header{
 
     background-color: #FFFAFA;
     box-shadow: 6px 10px 35px -10px #FFFAFA;
-    
+
     border-style: none;
     border-radius: 5px;
 
@@ -207,17 +217,19 @@ header{
 
 }
 
-.botao_login:hover{
+.botao_login:hover {
     transform: scale(1.001);
     background: linear-gradient(180deg, #FFFAFA 41.67%, #f8f8f8 100%);
 }
-.seta_login{
+
+.seta_login {
     height: 50px;
     width: 60px;
     margin-left: 60px;
     margin-right: 30px;
 }
-.formulario_login{
+
+.formulario_login {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -228,19 +240,21 @@ header{
 
 /* ==============================   HOME   ===============================================    */
 
-.btn_redirect{
+.btn_redirect {
     background-color: transparent;
     border: none;
     height: 50px;
     display: flex;
     justify-content: right;
 }
-.container_salas{
+
+.container_salas {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
-.box_sala{
+
+.box_sala {
     height: 200px;
     width: 300px;
     display: flex;
@@ -251,11 +265,13 @@ header{
     margin-bottom: 2vh;
     padding: 20px;
 }
-.box_titulo{
+
+.box_titulo {
     font-size: 24px;
     color: #F5F5F5;
 }
-.box_body{
+
+.box_body {
     font-size: 18px;
     color: #fff;
     display: flex;
@@ -267,32 +283,38 @@ header{
 
 /* ==============================   CAROMETRO   ===============================================    */
 
-.imagem_logo{
+.imagem_logo {
     height: 120px;
     width: 300px;
 }
 
-.container_foto{
+.container_foto_carometro {
     display: flex;
     flex-direction: column;
+    width: 80px;
+    height: 80px;
 }
 
-.pesquisa{
+.imagem_logo {
+    margin-left: 50px;
+}
+
+.pesquisa {
     background-image: url(../img/lupa.png);
 }
 
-.pesquisa input{
+.pesquisa input {
     width: 50px;
     color: black;
 }
 
-.container_alunos{
+.container_alunos {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.box_aluno{
+.box_aluno {
     height: 200px;
     width: 300px;
     display: flex;
@@ -304,23 +326,65 @@ header{
     padding: 20px;
 }
 
-.foto_aluno{
+.foto_aluno {
     width: 50%;
 }
 
-.nome_aluno{
+.nome_aluno {
     color: black;
     font-size: 24px;
 }
 
-.situacao_aluno{
+.situacao_aluno {
     font-size: 24px;
 }
 
-.seta{
+.seta {
     height: 50px;
     width: 50px;
     margin-left: 10px;
     margin-right: 20px;
 }
+
+.container_header_carometro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 17vw;
+}
+
+.main_carometro {
+    margin-top: 0px;
+}
+
+.box_pesquisa-carometro {
+    margin-left: 17vw;
+}
+
+.lupa_pesquisa_carometro {
+    height: 48px;
+    width: 48px;
+    border-bottom: black 2px solid;
+    margin-bottom: 20px;
+}
+
+.input_pesquisa_carometro {
+    width: 28vw;
+    height: 27.5px;
+    background: transparent;
+    border: 0;
+    border-bottom: black 2px solid;
+    outline: 0;
+    box-sizing: border-box;
+    padding-bottom: 11px;
+    padding-left: 5px;
+    font-size: 18px;
+}
+
+.box_pesquisa_input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ==============================   CAROMETRO   ===============================================    */

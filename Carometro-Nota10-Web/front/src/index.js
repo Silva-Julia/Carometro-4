@@ -23,11 +23,10 @@ const routing = (
     <div>
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route patch="/Login" component={Login}/>
+        <Route path="/Login" component={Login}/>
         <Route path="/Perfil" component={Perfil}/>
         <Route path="/Carometro" component={Carometro}/>
         <Route path="/Cadastro" component={Cadastro}/>
-
       </Switch>
     </div>
   </Router>

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import  { useState } from 'react';
+import { useState } from 'react';
 import "../../assets/css/style.css";
-import logo from '../../assets/img/LogoNota.png';
+import logo from '../../assets/img/Logo_Header.png';
 import SideBar2 from '../../components/SideBar/SideBar2';
-import PerfilFT from '../../assets/img/Perfil.png';
+import PerfilFT from '../../assets/img/icon-foto-carometro.png';
+import Lupa from '../../assets/img/lupa.png';
 import setinha from '../../assets/img/setinha.png';
 
 export default function Carometro() {
@@ -51,29 +52,29 @@ export default function Carometro() {
         }
         )
 
-        .then((resposta) => {
-            if(resposta.status == 200) {
-                setListaSala(resposta.data)
-                console.log(resposta)
-            }
-        })
+            .then((resposta) => {
+                if (resposta.status == 200) {
+                    setListaSala(resposta.data)
+                    console.log(resposta)
+                }
+            })
 
-        .catch(erro => console.log(erro))
+            .catch(erro => console.log(erro))
     }
 
     function BuscarAluno(nomeAluno) {
 
-        axios.get('http://localhost:5000/api/Alunos/Buscar/'+ nomeAluno, {
-            headers : {
-                Authorization : 'Bearer ' + localStorage.getItem('usuario-login')
+        axios.get('http://localhost:5000/api/Alunos/Buscar/' + nomeAluno, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
             }
         })
 
-        .then((resposta) => {
-            if(resposta.status == 200) {
-                setListaAlunosAchados(resposta.data)
-            }
-        })
+            .then((resposta) => {
+                if (resposta.status == 200) {
+                    setListaAlunosAchados(resposta.data)
+                }
+            })
 
     }
 
@@ -81,22 +82,26 @@ export default function Carometro() {
     useEffect(ListarSalas, [])
 
     return (
-        <div>
-            <header >
-                <div className="container container_header">
-                    <SideBar2/>
-                </div>
-                <div>
-                    <img className="imagem_logo" src={logo} alt="Logo Nota 10" />
-                    <img className="container_foto" src={PerfilFT} alt="Foto Perfil"/>
-                </div>
-            </header>
-            <main>
-                <form className="pesquisa" onSubmit={BuscarAlunos}> 
-                    <input className="input_pesquisa" />
+        <div className='container'>
+
+            <div className="container_header_carometro">
+                <img className="imagem_logo" src={logo} alt="Logo Nota 10" />
+                <img className="container_foto_carometro" src={PerfilFT} alt="Foto Perfil" />
+            </div>
+
+            <SideBar2 />
+
+            <div className='box_pesquisa-carometro'>
+                <form className='box_pesquisa_input'>
+                    <img className='lupa_pesquisa_carometro' src ={Lupa}/>
+                    <input className="input_pesquisa_carometro" type='search' />
                 </form>
-                
-                <div className='container container_alunos'>
+            </div>
+
+
+
+            <main className='main_carometro'>
+                <div className='container_alunos'>
                     {
                         <div className='box_aluno'>
                             <div className='foto_aluno'>
@@ -106,10 +111,10 @@ export default function Carometro() {
                                 <span>{nomeAluno}</span>
                             </div>
                             <div className='situacao_aluno'>
-                                <span> {}</span>
+                                <span></span>
                             </div>
                             <div>
-                                <img className="seta" src={setinha} alt="Seta"/>
+                                <img className="seta" src={setinha} alt="Seta" />
                             </div>
                         </div>
                     }
