@@ -392,3 +392,30 @@ header {
 }
 
 /* ==============================   CAROMETRO   ===============================================    */
+
+/*=============================== CADASTRO ===================================================== */
+.o{
+  width: 1435px;
+  display: flex;
+  align-items: center;
+}
+.formulario_cadastro input {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 20vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.formulario_cadastro input::placeholder {
+    color: #000;
+
+}
+.centeer{
+    display: flex;
+    align-items: center;
+}

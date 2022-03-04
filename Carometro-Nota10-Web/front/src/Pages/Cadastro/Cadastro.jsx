@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from "axios"
 import logo from '../../assets/img/LogoNota.png'
 import iconFoto from '../../assets/img/IconFoto.png';
+import SideBar2 from "../../components/SideBar/SideBar2";
+
 
 export default function Cadastro(){
 
@@ -75,8 +77,24 @@ export default function Cadastro(){
 
     return(
         <div>
+            <div className="o">
+            <SideBar2/>
+            <div className="centeer">
+            <div className="img">
+            <input type="image"></input>
+            <h2>Inserir Foto</h2>
+            </div>
+            <h1>CADASTROCADASTRO</h1>
+            <div className="formulario_cadastro input">
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            </div>
+            </div>
+            </div>
 
-            
         </div>
     );
 }
