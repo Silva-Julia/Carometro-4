@@ -5,7 +5,7 @@ import '../../assets/css/style.css';
 import setinha from '../../assets/img/setinha.png';
 import Navbar from '../../components/Header/NavBar';
 import { useState, useEffect } from 'react';
-import Sidebar from '../../components/SideBar/SideBar';
+import SideBar2 from '../../components/SideBar/SideBar2';
 
 export default function Home() {
 
@@ -40,7 +40,7 @@ useEffect(ListarSalas, [])
     <div>
       <header>
         <div className="container container_header">
-          <Navbar/>
+          <SideBar2/>
         </div>
       </header>
       <main>
