@@ -1,31 +1,27 @@
 
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../Services/auth';
-import { Component } from 'react';
+import React, { useState } from 'react';
 import "../../assets/css/style.css";
 import setinha from '../../assets/img/setinha.png';
 import logo from '../../assets/img/LogoNota.png'
 
 
-export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            senha: '',
-            erroMensagem: '',
-            isLoading: false,
-        };
-    }
+export default function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [erroMensagem, setErroMensagem] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
-    efetuarLogin = (event) => {
+
+    function EfetuarLogin (event) {
         event.preventDefault();
 
-        this.setState({ erroMensagem: '', isLoading: true });
+        setSenha('');
+        setIsLoading(true);
 
-        axios.post('', {
-            emailUsuario: this.state.email,
-            senhaUsuario: this.state.senha,
+        axios.post('http://localhost:5000/api/Login', {
+            email: email,
+            senha: senha,
 
         }).then((resposta) => {
 
@@ -33,7 +29,7 @@ export default class Login extends Component {
 
                 localStorage.setItem('usuario-login', resposta.data.token);
 
-                this.setState({ isLoading: false });
+                setIsLoading(false)
 
 
                 let base64 = localStorage.getItem('usuario-login').split('.')[1];
@@ -45,48 +41,41 @@ export default class Login extends Component {
         })
             .catch(() => {
 
-                this.setState({
-                    erroMensagem: 'E-mail e/ou senha inválidos!',
-                    isLoading: false,
-                });
+                setErroMensagem('E-mail e/ou senha inválidos!')
+                setIsLoading(false);
             });
     }
 
-    atualizaStateCampo = (campo) => {
-        this.setState({ [campo.target.name]: campo.target.value });
-    };
 
-    render(){
-        return(
-            <div>
-                <section>
-                            <div className="conteudo_login">
-                                <img src={logo} className='logo' />
-                                <div className="caixa_login">
-                                    <form className="formulario_login" onSubmit={this.efetuarLogin}>
-                                        <input className="input_login" type="email" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.atualizaStateCampo} />
-                                        <input className="input_login" type="password" placeholder="Senha" name="senha" value={this.state.senha} onChange={this.atualizaStateCampo} />
-                                        {
-                                            this.state.isLoading === true && (
-                                                <button type="submit" className="botao_login" disabled><img className="seta_login" src={setinha} alt="Seta" />Carregando...</button>
-                                            )
-                                        }
-                                        {
-                                            this.state.isLoading === false && (
-                                                <button type="submit" className="botao_login" disabled={
-                                                    this.state.email === '' || this.state.senha === ''
-                                                        ? 'none'
-                                                        : ''
-                                                }><img className="seta_login" src={setinha} alt="Seta" /> Entrar</button>
-                                            )
-                                        }
-    
-                                    </form>
-                                </div>
-                            </div>
-                    </section>
-            </div>
-        );
-    }
-    }
-   
+
+    return (
+        <div>
+            <section>
+                <div className="conteudo_login">
+                    <img src={logo} className='logo' />
+                    <div className="caixa_login">
+                        <form className="formulario_login" onSubmit={EfetuarLogin}>
+                            <input className="input_login" type="email" placeholder="E-Mail" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+                            <input className="input_login" type="password" placeholder="Senha" name="senha" value={senha} onChange={(event) => setSenha(event.target.value) } />
+                            {
+                               isLoading === false && (
+                                    <button type="submit" className="botao_login" disabled><img className="seta_login" src={setinha} alt="Seta" />Carregando...</button>
+                                )
+                            }
+                            {
+                                isLoading === true && (
+                                    <button type="submit" className="botao_login" disabled={
+                                        email === '' || senha === ''
+                                            ? 'none'
+                                            : ''
+                                    }><img className="seta_login" src={setinha} alt="Seta"/> Entrar</button>
+                                )
+                            }
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+}
+

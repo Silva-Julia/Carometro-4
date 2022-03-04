@@ -82,7 +82,7 @@ CREATE TABLE ALUNO(
 	nomeAluno VARCHAR(50),
 	rm VARCHAR(20),
 	telefone VARCHAR(11),
-	fotoDoPerfil VARCHAR(200),
+	fotoDoPerfil VARCHAR(MAX),
 	situacao VARCHAR(20)
 
 );

@@ -4,20 +4,94 @@
     padding: 0;
 }
 
-main{
+body{
  background-image: url(../img/linhas_fundo.png);
+}
+main{
+    margin-top: 14vh;
 }
 
 .container {
-    width: 1100px;
+    width: 800px;
     margin: 0 auto;
 }
+
+/* ==============================   MODAL   ===============================================    */
+
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(200, 200, 200);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  
+  .modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+
+  
+  .modalContainer .openBtn {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer .openBtn button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #cancelBtn {
+    background-color: crimson;
+  }
+
+/* ==============================   MODAL   ===============================================    */
+
+
 
 /* ==============================   HEADER   ===============================================    */
 
 .container_header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
@@ -29,6 +103,7 @@ header{
     top: 0;
     border-bottom: 1px solid #2C344F;
     background-image: url(../img/linhas_fundo.png);
+    
     
 }
 .header_logo{
@@ -149,3 +224,103 @@ header{
 }
 
 /* ==============================   LOGIN   ===============================================    */
+
+
+/* ==============================   HOME   ===============================================    */
+
+.btn_redirect{
+    background-color: transparent;
+    border: none;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+}
+.container_salas{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.box_sala{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    background-color: #0D2538;
+    border-radius: 20px;
+    margin-bottom: 2vh;
+    padding: 20px;
+}
+.box_titulo{
+    font-size: 24px;
+    color: #F5F5F5;
+}
+.box_body{
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==============================   HOME   ===============================================    */
+
+
+/* ==============================   CAROMETRO   ===============================================    */
+
+.imagem_logo{
+    height: 120px;
+    width: 300px;
+}
+
+.container_foto{
+    display: flex;
+    flex-direction: column;
+}
+
+.pesquisa{
+    background-image: url(../img/lupa.png);
+}
+
+.pesquisa input{
+    width: 50px;
+    color: black;
+}
+
+.container_alunos{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.box_aluno{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 13px;
+    margin-bottom: 2vh;
+    padding: 20px;
+}
+
+.foto_aluno{
+    width: 50%;
+}
+
+.nome_aluno{
+    color: black;
+    font-size: 24px;
+}
+
+.situacao_aluno{
+    font-size: 24px;
+}
+
+.seta{
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+/* ==============================   CAROMETRO   ===============================================    */
