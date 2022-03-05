@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import "../Perfil/perfil.css"
+import "../../assets/css/style.css";
 import axios from "axios";
 
 import Logo from '../../assets/img/LogoPerfil.png';

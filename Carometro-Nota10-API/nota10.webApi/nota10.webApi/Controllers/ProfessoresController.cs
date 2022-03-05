@@ -19,6 +19,20 @@ namespace nota10.webApi.Controllers
         {
             _professorRepository = repo;
         }
+        [HttpGet("Buscar")]
+        public IActionResult ListarProfessores()
+        {
+            try
+            {
+                return Ok(_professorRepository.ListarProfessores());
+            }
+            catch (Exception execp)
+            {
+
+                return BadRequest(execp);
+
+            }
+        }
 
         // POST api/<ProfessoresController>
         [Authorize(Roles = "2")]

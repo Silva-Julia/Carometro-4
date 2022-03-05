@@ -12,6 +12,8 @@ namespace nota10.webApi.Interfaces
         /// Cadastra um novo professor
         /// </summary>
         /// <param name="novoProfessor">objeto com os dados do novo professor</param>
+
+        List<Professor> ListarProfessores();
         void CadastrarProfessor(Professor novoProfessor);
     }
 }

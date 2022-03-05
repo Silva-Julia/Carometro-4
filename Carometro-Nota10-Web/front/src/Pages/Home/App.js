@@ -9,60 +9,146 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
 
-  const [ listaSalas, setListaSalas ] = useState( [] )
-  const [isLoading, setIsLoading] = useState(false)
+  const [listaSalas, setListaSalas] = useState([])
+  const [listaProfessores, setListaProfessores] = useState([])
+  const [IdProfessor, setIdProfessor] = useState(0)
+  const [nomeSala, setNomeSala] = useState('')
+  const [numeroSala, setNumeroSala] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
+
+  function professores() {
+    axios('http://localhost:5000/api/Professores/Buscar', {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+      }
+    })
+
+      .then(resposta => {
+        if (resposta.status === 200) {
+          setListaProfessores(resposta.data)
+        }
+      })
+      .catch(erro => console.log(erro))
+  }
 
 
+
+
+  function cadastrarConsulta(event) {
+    event.preventDefault();
+
+    setIsLoading(true)
+
+    axios.post("http://localhost:5000/api/Salas", {
+      IdProfessor: IdProfessor,
+      numeroSala: numeroSala,
+      nomeSala: nomeSala
+    }, {
+
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+      }
+
+
+
+    })
+      .then(response => {
+        if (response.status === 201) {
+
+          setIsLoading(false)
+          ListarSalas()
+        }
+      })
+      .catch(erro => console.log(erro))
+  }
 
   function ListarSalas() {
     axios.get('http://localhost:5000/api/Salas/Listar', {
-        headers: {
+      headers: {
 
-            Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
-        }
+        Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
+      }
     }
     )
 
-    .then((resposta) => {
-        if(resposta.status == 200) {
-            setListaSalas(resposta.data)
-            console.log(resposta)
+      .then((resposta) => {
+        if (resposta.status === 200) {
+          setListaSalas(resposta.data)
+          console.log(resposta)
         }
-    })
+      })
 
-    .catch(erro => console.log(erro))
-}
-
-useEffect(ListarSalas, [])
+      .catch(erro => console.log(erro))
+  }
+  useEffect(professores, [])
+  useEffect(ListarSalas, [])
 
 
   return (
     <div>
       <header>
         <div className="container container_header">
-          <Navbar/>
+          <Navbar />
         </div>
       </header>
       <main>
-        <div className='container container_salas'>
-          {
+        <div className='container organizador_box'>
+          <div className='container_cdSala'>
+            <span className='titulo_cdSala'>cadastrar sala</span>
+            <form onSubmit={cadastrarConsulta} className="form_cdSala">
+              <div className="formulario_cdSala">
+                <input type="text" className="input_cdSala" placeholder='Nome da sala' name='nomeSala' value={nomeSala} onChange={(event) => setNomeSala(event.target.value)} />
+                <input type="text" className="input_cdSala" placeholder='Numero da sala' name='numeroSala' value={numeroSala} onChange={(event) => setNumeroSala(event.target.value)} />
+                <select className="input_cdSala" name="Professor" onChange={ (evt) => setIdProfessor(evt.target.value)} id="">
+                  <option value="#">Escolha um professor</option>
+                  {
+                    listaProfessores.map((event) => {
+
+                      return (
+
+                        <option key={event.IdProfessor} value={event.IdProfessor}>{event.Professor[0].idProfessorNavigation.idUsuarioNavigation.nomeUsuario}</option>
+                      )
+                    })
+                  }
+                </select>
+                {
+                  isLoading === false && (
+                    <button type="submit" className="botao_cdSala" disabled><img className="seta_cdSala" src={SetinhaBranca} alt="Seta" />Carregando...</button>
+                  )
+                }
+                {
+                  isLoading === true && (
+                    <button type="submit" className="botao_cdSala" disabled={
+                      nomeSala === '' || numeroSala === '' || IdProfessor === [0]
+                        ? 'none'
+                        : ''
+                    }><img className="seta_cdSala" src={SetinhaBranca} alt="Seta" /> Cadastrar</button>
+                  )
+                }
+              </div>
+            </form>
+          </div>
+          <div className='container_salas'>
+            {
               listaSalas.map((event) => {
                 console.log(event)
-                  return(
-                    <div className='box_sala'>
-                      <div className='box_titulo'>
-                        <span>Turma {event.nomeSala}</span>
-                      </div>
-                      <div className='box_body'>
-                        <span> {event.numeroSala}</span>
-                        <span>Professor {event.idProfessorNavigation.idUsuarioNavigation.nomeUsuario} </span>
-                      </div>
-                      <button className='btn_redirect'><img  src={SetinhaBranca}/></button>
+                return (
+                  <div className='box_sala'>
+                    <div className='box_titulo'>
+                      <span>Turma {event.nomeSala}</span>
                     </div>
-                  )
+                    <div className='box_body'>
+                      <span> Sala {event.numeroSala}</span>
+                      <span>Professor {event.idProfessorNavigation.idUsuarioNavigation.nomeUsuario} </span>
+                    </div>
+                    <button className='btn_redirect'><img src={SetinhaBranca} /></button>
+                  </div>
+                )
               })
             }
           </div>
+
+        </div>
       </main>
     </div>
   );

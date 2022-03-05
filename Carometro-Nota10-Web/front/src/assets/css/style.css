@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Quintessential&display=swap');
+
 * {
     box-sizing: 0;
     margin: 0;
@@ -190,6 +192,7 @@ header {
 
 .formulario_login input::placeholder {
     color: #fff;
+    font-size: 17px;
 
 }
 
@@ -239,7 +242,10 @@ header {
 
 
 /* ==============================   HOME   ===============================================    */
-
+.organizador_box{
+    display: flex;
+    justify-content: space-between;
+}
 .btn_redirect {
     background-color: transparent;
     border: none;
@@ -256,18 +262,21 @@ header {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    width: 48%;
+
+
 }
 
 .box_sala {
     height: 200px;
-    width: 300px;
+    width: 97%;
     display: flex;
     align-items: left;
     flex-direction: column;
     background-color: #0D2538;
     border-radius: 20px;
     margin-bottom: 2vh;
-    padding: 20px;
+    padding: 35px;
 }
 
 .box_titulo {
@@ -276,12 +285,93 @@ header {
 }
 
 .box_body {
+    height: 65px;
     font-size: 18px;
     color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
+.container_cdSala{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: #0D2538 2px solid;
+    border-radius: 10px;
+    width: 48%;
+    padding-top: 50px;
+    box-sizing: border-box;
+
+}
+.titulo_cdSala{
+    font-size: 1.8vw;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.form_cdSala{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.formulario_cdSala{
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+}
+.input_cdSala{
+    width: 300px;
+    height: 30px;
+    margin-top: 50px;
+    background-color: transparent;
+    outline: 0;
+    border: 0 ;
+    border-bottom: #2C344F 2px solid;
+    padding: 0 20px;
+    background-position: 260px;
+    font-size: 15px;
+}
+.input_cdSala::placeholder{
+    color: #000;
+    font-size: 15px;
+}
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0;
+    padding: 0 20px;
+
+    background: url(../img/AbrirSelect.png) no-repeat;
+
+
+}
+.botao_cdSala{
+    width: 300px;
+    height: 35px;
+    margin-top: 50px;
+    background-color: #0D2538;
+    box-shadow: 6px 10px 35px -10px #2C344F;
+    color: #fff;
+    font-size: 17px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    border-style: none;
+    border-radius: 5px;
+}
+.botao_login:hover {
+    transform: scale(1.001);
+    background: linear-gradient(180deg, #0D2538 41.67%, #2C344F 100%);
+}
+.seta_cdSala{
+    height: 30px;
+    margin-left: 65px;
+    margin-right: 20px;
+}
 /* ==============================   HOME   ===============================================    */
 
 
@@ -394,28 +484,143 @@ header {
 /* ==============================   CAROMETRO   ===============================================    */
 
 /*=============================== CADASTRO ===================================================== */
-.o{
-  width: 1435px;
-  display: flex;
-  align-items: center;
+
+.container_cadastro{
+    display: flex;
+    justify-content: center;
+    margin-top: 12vh;
 }
-.formulario_cadastro input {
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 5px;
-    width: 20vw;
-    height: 5vh;
+.header_cadastro{
+    display: flex;
+    justify-content: center;
+}
+.titulo_cadastro{
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.input_foto{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin-right: 50px;
 }
-
-.formulario_cadastro input::placeholder {
-    color: #000;
-
+.img_perfilCadastro{
+    height: 180px;
+    width: 180px;
+    margin-bottom: 10px;
 }
-.centeer{
+.input_file{
+    background-color: transparent;
+    color: #0D2538;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    font-size: 22px;
+
+    cursor: pointer;
+}
+input[type="file"] {
+
+    display: none;
+}
+.body_cadastro{
+    height: 50vh;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.input_cadastro{
+    width: 450px;
+    height: 50px;
+    background-color: transparent;
+    outline: 0;
+    border: #0D2538 2px solid;
+    padding: 0 20px;
+    border-radius: 20px;
+    background-position: 370px;
+    font-size: 18px;
+}
+.input_cadastro::placeholder{
+    color: #000;
+    
+}
+
+/*=============================== CADASTRO ===================================================== */
+
+
+/*=============================== PERFIL ===================================================== */
+
+.imagem_logo{
+    height: 120px;
+    width: 300px;
+    margin-left: 40px;
+    margin-left: 200px;
+}
+
+.container_foto{
+    height: 210px;
+    display: flex;
+    justify-content: right;
+}
+
+.contaier_foto_editar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
 }
+
+.foto_perfil{
+    width: 175px;
+    height: 175px;
+    border-radius: 90px;
+}
+
+.margin_foto{
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 45px;
+
+}
+
+.estilo_editar_button{
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 17px;
+    border-radius: 8px;
+}
+
+.container_info{
+    height: 40px;
+    width: 400px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(62, 81, 143, 0.7);
+    border-radius: 10px;
+}
+
+.margin_info{
+    margin-bottom: 20px;
+    margin-left: 15px;
+    color: #A5A5A5;
+    font-size: 30px;
+}
+
+.margin_top_info{
+    margin-top: 40px;
+}
+
+.margin_geral_info{
+    margin-left: 350px;
+}
+
+.margin_left_info{
+    margin-left: 10px;
+}
+
+/*=============================== PERFIL ===================================================== */
