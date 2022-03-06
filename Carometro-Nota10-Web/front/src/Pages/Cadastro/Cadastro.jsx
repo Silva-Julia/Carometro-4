@@ -5,17 +5,17 @@ import logo from '../../assets/img/LogoNota.png'
 import iconFoto from '../../assets/img/IconFoto.png';
 import SideBar2 from "../../components/SideBar/SideBar2";
 import "../../assets/css/style.css";
+import SetinhaBranca from '../../assets/img/SetinhaBranca.png';
 
 
 export default function Cadastro() {
 
     const [idSala, setIdSala] = useState(0)
-    const [idSituacao, setIdSituacao] = useState(0);
-    const [NomeAluno, setNomeAluno] = useState([]);
-    const [RM, setRM] = useState([]);
-    const [Telefone, setTelefone] = useState([]);
-    const [FotoPerfil, setFotoPerfil] = useState([]);
-    const [Sala, setSala] = useState([]);
+    const [idSituacao, setSituacao] = useState(0);
+    const [NomeAluno, setNomeAluno] = useState('');
+    const [RM, setRM] = useState('');
+    const [Telefone, setTelefone] = useState('');
+    const [FotoPerfil, setFotoPerfil] = useState('');
     const [listaSala, setListaSala] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
 
@@ -29,7 +29,7 @@ export default function Cadastro() {
         )
 
             .then((resposta) => {
-                if (resposta.status == 200) {
+                if (resposta.status === 200) {
                     setListaSala(resposta.data)
                     console.log(resposta)
                 }
@@ -38,83 +38,146 @@ export default function Cadastro() {
             .catch(erro => console.log(erro))
     }
 
+    const cadastrarAluno = (event) => {
 
-    function cadastrarAluno(event) {
         event.preventDefault();
 
-        setIsLoading(true)
+        var formData = new FormData();
 
-        axios.post("http://localhost:5000/api/Alunos/Cadastrar", {
-            idsala: idSala,
-            idSituacao: idSituacao,
-            NomeAluno: NomeAluno,
-            Telefone: Telefone,
-            Sala: Sala,
-            RM: RM,
-            FotoPerfil: FotoPerfil
+        const element = document.getElementById('arquivo')
+        const file = element.files[0]
+        formData.append('arquivo', file, file.name)
 
+        formData.append('idSala', 0);
+        formData.append('fotoPerfil', FotoPerfil);
+        formData.append('idSituacao', 0);
+        formData.append('nomeAluno', NomeAluno);
+        formData.append('Telefone', Telefone);
+        formData.append('RM', RM);
 
-        }, {
-
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
-            }
-
-
-
+        axios({
+            method: "post",
+            url: "http://localhost:5000/api/Alunos/Cadastrar",
+            data: formData,
+            headers: { "Content-Type": "multipart/form-data" },
         })
-            .then(response => {
-                if (response.status === 201) {
-
-                    setIsLoading(false)
-                    console.log('aluno cadastrado')
-                }
-            })
-            .catch(erro => console.log(erro))
-
+            .then(function (response) {
+                console.log(response);
+                console.log('aluno cadastrado')
+              })
+              .catch(function (response) {
+                //handle error
+                console.log(response);
+              });
     }
 
 
-    useEffect(BuscarSalas, [])
-    useEffect(cadastrarAluno, [])
+// function cadastrarAluno(event) {
+//     event.preventDefault();
 
-    return (
-        <div>
-            <SideBar2 />
-            <div className="container_cadastro">
-                <div className="box_cadastro">
-                    <form className="form_cadastro">
-                        <div className="header_cadastro">
-                            <div className="input_foto">
-                                <img className="img_perfilCadastro" src={iconFoto} />
-                                <label for="fotoPerfil" className="input_file">Inserir Foto</label>
-                                <input type='file' className="input_fil" name='fotoPerfil' value={FotoPerfil} onChange={(event) => setFotoPerfil(event.target.value)} />
-                            </div>
-                            <span className="titulo_cadastro">Cadastro</span>
+//     setIsLoading(true)
+
+//     let cadastro = {
+//         idSala: idSala,
+//         idSituacao: idSituacao,
+//         NomeAluno: NomeAluno,
+//         Telefone: Telefone,
+//         RM: RM,
+//         FotoPerfil: FotoPerfil
+//     }
+
+
+//     axios.post("http://localhost:5000/api/Alunos/Cadastrar", data: formData,
+//     headers: { "Content-Type": "multipart/form-data" }, cadastro, {
+
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+//         }
+
+
+
+//     })
+//         .then(response => {
+//             if (response.status === 201) {
+
+//                 setIsLoading(false)
+//                 console.log('aluno cadastrado')
+//             }
+//         })
+//         .catch(erro => console.log(erro))
+
+// }
+
+
+useEffect(BuscarSalas, [])
+
+
+return (
+    <div>
+        <SideBar2 />
+        <div className="container_cadastro">
+
+            <div className="box_cadastro">
+                <form className="form_cadastro" onSubmit={cadastrarAluno} >
+                    <div className="header_cadastro">
+                        <div className="input_foto">
+                            <img className="img_perfilCadastro" src={iconFoto} alt='fotoPerfil' />
+                            <label htmlFor="fotoPerfil" className="input_file">Inserir Foto</label>
+                            <input type='file' className="input_fil" name='fotoPerfil' id="fotoPerfil" value={FotoPerfil} onChange={(event) => setFotoPerfil(event.target.value)} />
                         </div>
-                        <div className="body_cadastro">
-                            <input type="text" className="input_cadastro" name="nomeAluno" placeholder="Nome do Aluno" value={NomeAluno} onChange={(event) => setNomeAluno(event.target.value)} />
-                            <input type="text" className="input_cadastro" name="RM" placeholder="RM" value={RM} onChange={(event) => setRM(event.target.value)} />
-                            <input type="text" className="input_cadastro" name="Sala" placeholder="Turma" value={Sala} onChange={(event) => setSala(event.target.value)} />
-                            <select className="input_cadastro" name="Situacao" onChange={(evt) => setIdSituacao(evt.target.value)} id="">
-                                <option value="#">Situação</option>
-                                {
-                                    listaSala.map((event) => {
+                        <span className="titulo_cadastro">Cadastro</span>
+                    </div>
+                    <div className="body_cadastro">
+                        <input type="text" className="input_cadastro" name="nomeAluno" placeholder="Nome do Aluno" value={NomeAluno} onChange={(event) => setNomeAluno(event.target.value)} />
+                        <input type="text" className="input_cadastro" name="RM" placeholder="RM" value={RM} onChange={(event) => setRM(event.target.value)} />
+                        <select
+                            name="idSala"
+                            value={idSala}
+                            className="input_cadastro"
+                            onChange={(event) => setIdSala(event.target.value)}
 
-                                        return (
+                        >
+                            <option value="#">Turma</option>
 
-                                            <option key={event.idSituacao} value={event.idSituacao}>{event.Situacao[0].situacao}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                            <input type="text" className="input_cadastro" name="telefone" placeholder="Telefone" value={Telefone} onChange={(event) => setTelefone(event.target.value)} />
-                        </div>
-                    </form>
-                </div>
+                            {listaSala.map((event) => {
+                                return (
+
+                                    <option key={event.idSala} value={event.idSala}>{event.nomeSala}
+                                    </option>
+                                );
+                            })}
+
+                        </select>
+                        <select name="idSituacao"
+                            value={idSituacao}
+                            onChange={(event) => setSituacao(event.target.value)}
+                            className="input_cadastro"
+
+                        >
+                            <option value="0">Aprovado</option>
+                            <option value="1">Reprovado</option>
+
+                        </select>
+                        <input type="text" className="input_cadastro" name="telefone" placeholder="Telefone" value={Telefone} onChange={(event) => setTelefone(event.target.value)} />
+                        {
+                            isLoading && (
+                                <button type="submit" className="botao_cadastro" disabled><img className="seta_cadastro" src={SetinhaBranca} alt="Seta" />Carregando...</button>
+                            )
+                        }
+                        {
+                            isLoading === false && (
+                                <button type="submit" className="botao_cadastro"
+                                ><img className="seta_cadastro" src={SetinhaBranca} alt="Seta" /> Cadastrar</button>
+                            )
+                        }
+
+                    </div>
+
+                </form>
             </div>
         </div>
-    );
+    </div>
+);
 }
 
 

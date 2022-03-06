@@ -22,8 +22,8 @@ const routing = (
   <Router>
     <div>
       <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/Login" component={Login}/>
+        <Route exact path="/" component={Login}/>
+        <Route path="/Turmas" component={Home}/>
         <Route path="/Perfil" component={Perfil}/>
         <Route path="/Carometro" component={Carometro}/>
         <Route path="/Cadastro" component={Cadastro}/>

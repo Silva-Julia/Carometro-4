@@ -8,6 +8,7 @@ using nota10.webApi.Repositories;
 using nota10.webApi.ViewModels;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -61,26 +62,27 @@ namespace nota10.webApi.Controllers
         }
 
         // POST api/<ValuesController>
-        [Authorize(Roles = "2")]
         [HttpPost("Cadastrar")]
+
         public IActionResult CadastrarAluno([FromForm] AlunoViewModel alunoViewModel)
         {
             try
             {
-                if(alunoViewModel.FotoDePerfil.Length > 50000) {
+                if (alunoViewModel.FotoDePerfil.Length > 50000)
+                {
                     return BadRequest(new { mensagem = "A imagem deve ter no máximo 5mb !" });
                 }
 
                 string extensao = alunoViewModel.FotoDePerfil.ContentType.Split('/')[1];
 
-                if(extensao != "png" && extensao != "jpeg")
+                if (extensao != "png" && extensao != "jpeg")
                 {
-                    return BadRequest(new {mensagem = "Apenas png e jpeg são permitidos !" });
+                    return BadRequest(new { mensagem = "Apenas png e jpeg são permitidos !" });
                 }
 
                 _AlunoRepository.CadastrarAluno(alunoViewModel);
                 return StatusCode(201);
-                
+
             }
             catch (Exception execp)
             {

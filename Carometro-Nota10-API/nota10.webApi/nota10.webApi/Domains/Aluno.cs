@@ -18,7 +18,6 @@ namespace nota10.webApi.Domains
         [Required]
         public string Rm { get; set; }
         public string Telefone { get; set; }
-
         [Required]
         public string FotoDoPerfil { get; set; }
         public bool? Situacao { get; set; }

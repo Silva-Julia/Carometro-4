@@ -11,7 +11,7 @@ export default function Home() {
 
   const [listaSalas, setListaSalas] = useState([])
   const [listaProfessores, setListaProfessores] = useState([])
-  const [IdProfessor, setIdProfessor] = useState(0)
+  const [idProfessor, setIdProfessor] = useState(0)
   const [nomeSala, setNomeSala] = useState('')
   const [numeroSala, setNumeroSala] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -40,7 +40,7 @@ export default function Home() {
     setIsLoading(true)
 
     axios.post("http://localhost:5000/api/Salas", {
-      IdProfessor: IdProfessor,
+      idProfessor: idProfessor,
       numeroSala: numeroSala,
       nomeSala: nomeSala
     }, {
@@ -99,17 +99,25 @@ export default function Home() {
               <div className="formulario_cdSala">
                 <input type="text" className="input_cdSala" placeholder='Nome da sala' name='nomeSala' value={nomeSala} onChange={(event) => setNomeSala(event.target.value)} />
                 <input type="text" className="input_cdSala" placeholder='Numero da sala' name='numeroSala' value={numeroSala} onChange={(event) => setNumeroSala(event.target.value)} />
-                <select className="input_cdSala" name="Professor" onChange={ (evt) => setIdProfessor(evt.target.value)} id="">
-                  <option value="#">Escolha um professor</option>
-                  {
-                    listaProfessores.map((event) => {
+                <select
+                  name="idProfessor"
+                  value={idProfessor}
+                  className="input_cdSala"
+                  onChange={(evt) => setIdProfessor(evt.target.value)}
+                  required
+                >
+                  <option value="#">Selecione o nome do professor</option>
 
+                  {
+                    listaProfessores.map((professor) => {
                       return (
 
-                        <option key={event.IdProfessor} value={event.IdProfessor}>{event.Professor[0].idProfessorNavigation.idUsuarioNavigation.nomeUsuario}</option>
-                      )
-                    })
-                  }
+                        <option key={professor.idProfessor} value={professor.idProfessor}>
+                          {professor.nomeUsuario}
+                        </option>
+                      );
+                    })}
+
                 </select>
                 {
                   isLoading === false && (
@@ -119,7 +127,7 @@ export default function Home() {
                 {
                   isLoading === true && (
                     <button type="submit" className="botao_cdSala" disabled={
-                      nomeSala === '' || numeroSala === '' || IdProfessor === [0]
+                      nomeSala === '' || numeroSala === '' || idProfessor === [0]
                         ? 'none'
                         : ''
                     }><img className="seta_cdSala" src={SetinhaBranca} alt="Seta" /> Cadastrar</button>

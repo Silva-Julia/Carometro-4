@@ -44,7 +44,7 @@ namespace nota10.webApi.Repositories
             Aluno novoAluno = new Aluno()
             {
                 FotoDoPerfil = ImagemParaBase64.TransFormarImagemBase64(alunoViewModel.FotoDePerfil),
-                IdAluno = alunoViewModel.IdAluno,
+
                 IdSala = alunoViewModel.IdSala,
                 NomeAluno = alunoViewModel.NomeAluno,
                 Rm = alunoViewModel.Rm,
@@ -52,7 +52,7 @@ namespace nota10.webApi.Repositories
                 Telefone = alunoViewModel.Telefone
             };
 
-            nota10Context.Add(novoAluno);
+            nota10Context.Add(alunoViewModel);
 
             nota10Context.SaveChanges();
         }

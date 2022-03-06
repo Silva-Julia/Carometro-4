@@ -1,4 +1,5 @@
-
+import { useHistory } from 'react-router-dom';
+import { parseJwt } from "../../Services/auth";
 import axios from 'axios';
 import React, { useState } from 'react';
 import "../../assets/css/style.css";
@@ -10,13 +11,15 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erroMensagem, setErroMensagem] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
+    let history = useHistory();
 
-    function EfetuarLogin (event) {
+    function EfetuarLogin(event) {
         event.preventDefault();
 
-        setSenha('');
+
+
         setIsLoading(true);
 
         axios.post('http://localhost:5000/api/Login', {
@@ -36,14 +39,21 @@ export default function Login() {
 
                 console.log(base64);
 
-                console.log(this.props);
+
+                console.log(parseJwt().role);
+
+
+                history.push('/Cadastro')
             }
         })
-            .catch(() => {
+        .catch(erro => {
+            console.log(erro)
 
-                setErroMensagem('E-mail e/ou senha inválidos!')
-                setIsLoading(false);
-            });
+
+            setErroMensagem("E-mail e/ou Senha inválidos")
+
+            setIsLoading(false)
+        })
     }
 
 
@@ -56,19 +66,19 @@ export default function Login() {
                     <div className="caixa_login">
                         <form className="formulario_login" onSubmit={EfetuarLogin}>
                             <input className="input_login" type="email" placeholder="E-Mail" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-                            <input className="input_login" type="password" placeholder="Senha" name="senha" value={senha} onChange={(event) => setSenha(event.target.value) } />
+                            <input className="input_login" type="password" placeholder="Senha" name="senha" value={senha} onChange={(event) => setSenha(event.target.value)} />
                             {
-                               isLoading === false && (
+                                isLoading === true && (
                                     <button type="submit" className="botao_login" disabled><img className="seta_login" src={setinha} alt="Seta" />Carregando...</button>
                                 )
                             }
                             {
-                                isLoading === true && (
+                                isLoading === false && (
                                     <button type="submit" className="botao_login" disabled={
                                         email === '' || senha === ''
                                             ? 'none'
                                             : ''
-                                    }><img className="seta_login" src={setinha} alt="Seta"/> Entrar</button>
+                                    }><img className="seta_login" src={setinha} alt="Seta" /> Entrar</button>
                                 )
                             }
                         </form>
