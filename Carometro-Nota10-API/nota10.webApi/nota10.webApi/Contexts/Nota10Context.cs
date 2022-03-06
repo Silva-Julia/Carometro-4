@@ -141,9 +141,7 @@ namespace nota10.webApi.Contexts
 
                 entity.Property(e => e.NumeroSala).HasColumnName("numeroSala");
 
-                entity.Property(e => e.Periodo)
-                    .HasColumnName("periodo")
-                    .HasDefaultValueSql("((1))");
+
 
                 entity.HasOne(d => d.IdProfessorNavigation)
                     .WithMany(p => p.Salas)

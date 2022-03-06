@@ -16,6 +16,7 @@ import Cadastro from './Pages/Cadastro/Cadastro';
 
 
 
+
 const routing = (
   <Router>
     <div>

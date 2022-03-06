@@ -20,7 +20,7 @@ namespace nota10.webApi.Domains
         public string Telefone { get; set; }
         [Required]
         public string FotoDoPerfil { get; set; }
-        public bool? Situacao { get; set; }
+        public bool Situacao { get; set; }
 
         public virtual Sala IdSalaNavigation { get; set; }
     }

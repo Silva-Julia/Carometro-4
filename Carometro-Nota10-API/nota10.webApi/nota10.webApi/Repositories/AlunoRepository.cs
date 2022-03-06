@@ -116,5 +116,10 @@ namespace nota10.webApi.Repositories
                 nota10Context.SaveChanges();
             }
         }
+
+        public Aluno BuscarPorFoto(string fotoPerfil)
+        {
+            return nota10Context.Alunos.ToList().Find(a => a.FotoDoPerfil.Split(".")[0] == fotoPerfil);
+        }
     }
 }

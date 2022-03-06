@@ -18,7 +18,10 @@ main {
     width: 1200px;
     margin: 0 auto;
 }
+input[type="file"] {
 
+    display: none;
+}
 
 /* ==============================   MODAL   ===============================================    */
 
@@ -292,8 +295,9 @@ header {
     border-radius: 10px;
     width: 48%;
     padding-top: 50px;
+    padding-bottom: 50px;
     box-sizing: border-box;
-    height: 383px;
+    height: 483px;
 
 }
 

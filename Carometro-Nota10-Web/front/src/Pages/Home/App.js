@@ -121,16 +121,6 @@ export default function Home() {
 
                 </select>
 
-                <select
-                  name='Periodo'
-                  className="input_cdSala"
-                  value={periodo}
-                  onChange={(event => setPeriodo(event.target.value))}
-                >
-                  <option value="#">Selecione o Periodo</option>
-                  <option value={true}>Manhã</option>
-                  <option value={false}>Tarde</option>
-                </select>
                 {
                   isLoading === false && (
                     <button type="submit" className="botao_cdSala" disabled><img className="seta_cdSala" src={SetinhaBranca} alt="Seta" />Carregando...</button>
