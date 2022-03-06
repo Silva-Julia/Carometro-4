@@ -110,14 +110,14 @@ namespace nota10.webApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "nota10.webApi v1"));
             }
 
-            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
-            app.UseAuthorization();
-            
             app.UseAuthentication();
 
+            app.UseAuthorization();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {

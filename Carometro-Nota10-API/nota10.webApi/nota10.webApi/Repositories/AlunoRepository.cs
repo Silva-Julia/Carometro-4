@@ -52,7 +52,7 @@ namespace nota10.webApi.Repositories
                 Telefone = alunoViewModel.Telefone
             };
 
-            nota10Context.Add(alunoViewModel);
+            nota10Context.Add(novoAluno);
 
             nota10Context.SaveChanges();
         }

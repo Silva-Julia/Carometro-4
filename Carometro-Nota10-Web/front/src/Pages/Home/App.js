@@ -13,50 +13,49 @@ export default function Home() {
   const [listaProfessores, setListaProfessores] = useState([])
   const [idProfessor, setIdProfessor] = useState(0)
   const [nomeSala, setNomeSala] = useState('')
+  const [periodo, setPeriodo] = useState(true)
   const [numeroSala, setNumeroSala] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
   function professores() {
     axios('http://localhost:5000/api/Professores/Buscar', {
       headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+        Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
       }
     })
 
       .then(resposta => {
         if (resposta.status === 200) {
           setListaProfessores(resposta.data)
+          console.log(resposta.data)
         }
       })
       .catch(erro => console.log(erro))
   }
 
-
-
-
-  function cadastrarConsulta(event) {
+  function cadastrarSala(event) {
     event.preventDefault();
 
-    setIsLoading(true)
+    setIsLoading(false)
 
-    axios.post("http://localhost:5000/api/Salas", {
+    axios.post("http://localhost:5000/api/Salas/Cadastrar", {
       idProfessor: idProfessor,
       numeroSala: numeroSala,
-      nomeSala: nomeSala
+      nomeSala: nomeSala,
+      periodo: periodo
     }, {
 
       headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+        Authorization: 'Bearer ' + localStorage.getItem('usuario-login')
       }
-
-
-
     })
       .then(response => {
         if (response.status === 201) {
 
-          setIsLoading(false)
-          ListarSalas()
+          setIsLoading(true)
+          ListarSalas();
+
+          
         }
       })
       .catch(erro => console.log(erro))
@@ -74,12 +73,12 @@ export default function Home() {
       .then((resposta) => {
         if (resposta.status === 200) {
           setListaSalas(resposta.data)
-          console.log(resposta)
         }
       })
 
       .catch(erro => console.log(erro))
   }
+
   useEffect(professores, [])
   useEffect(ListarSalas, [])
 
@@ -95,7 +94,7 @@ export default function Home() {
         <div className='container organizador_box'>
           <div className='container_cdSala'>
             <span className='titulo_cdSala'>cadastrar sala</span>
-            <form onSubmit={cadastrarConsulta} className="form_cdSala">
+            <form onSubmit={cadastrarSala} className="form_cdSala">
               <div className="formulario_cdSala">
                 <input type="text" className="input_cdSala" placeholder='Nome da sala' name='nomeSala' value={nomeSala} onChange={(event) => setNomeSala(event.target.value)} />
                 <input type="text" className="input_cdSala" placeholder='Numero da sala' name='numeroSala' value={numeroSala} onChange={(event) => setNumeroSala(event.target.value)} />
@@ -103,7 +102,7 @@ export default function Home() {
                   name="idProfessor"
                   value={idProfessor}
                   className="input_cdSala"
-                  onChange={(evt) => setIdProfessor(evt.target.value)}
+                  onChange={(event) => setIdProfessor(event.target.value)}
                   required
                 >
                   <option value="#">Selecione o nome do professor</option>
@@ -113,11 +112,22 @@ export default function Home() {
                       return (
 
                         <option key={professor.idProfessor} value={professor.idProfessor}>
-                          {professor.nomeUsuario}
+                          {professor.idUsuarioNavigation.nomeUsuario}
                         </option>
                       );
                     })}
 
+                </select>
+
+                <select
+                  name='Periodo'
+                  className="input_cdSala"
+                  value={periodo}
+                  onChange={(event => setPeriodo(event.target.value))}
+                >
+                  <option value="#">Selecione o Periodo</option>
+                  <option value={true}>Manhã</option>
+                  <option value={false}>Tarde</option>
                 </select>
                 {
                   isLoading === false && (
@@ -139,7 +149,6 @@ export default function Home() {
           <div className='container_salas'>
             {
               listaSalas.map((event) => {
-                console.log(event)
                 return (
                   <div className='box_sala'>
                     <div className='box_titulo'>

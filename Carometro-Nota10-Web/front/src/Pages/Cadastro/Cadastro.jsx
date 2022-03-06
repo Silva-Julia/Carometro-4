@@ -44,13 +44,13 @@ export default function Cadastro() {
 
         var formData = new FormData();
 
-        const element = document.getElementById('arquivo')
+        const element = document.getElementById('fotoPerfil')
         const file = element.files[0]
-        formData.append('arquivo', file, file.name)
+        formData.append('fotoDePerfil', file, file.name)
 
-        formData.append('idSala', 0);
-        formData.append('fotoPerfil', FotoPerfil);
-        formData.append('idSituacao', 0);
+        formData.append('idSala', idSala);
+        formData.append('fotoDePerfil', FotoPerfil);
+        formData.append('idSituacao', idSituacao);
         formData.append('nomeAluno', NomeAluno);
         formData.append('Telefone', Telefone);
         formData.append('RM', RM);
@@ -154,19 +154,19 @@ return (
                             className="input_cadastro"
 
                         >
-                            <option value="0">Aprovado</option>
-                            <option value="1">Reprovado</option>
+                            <option value="false">Aprovado</option>
+                            <option value="true">Reprovado</option>
 
                         </select>
                         <input type="text" className="input_cadastro" name="telefone" placeholder="Telefone" value={Telefone} onChange={(event) => setTelefone(event.target.value)} />
                         {
                             isLoading && (
-                                <button type="submit" className="botao_cadastro" disabled><img className="seta_cadastro" src={SetinhaBranca} alt="Seta" />Carregando...</button>
+                                <button onClick={() => cadastrarAluno} type="submit" className="botao_cadastro" disabled><img className="seta_cadastro" src={SetinhaBranca} alt="Seta" />Carregando...</button>
                             )
                         }
                         {
                             isLoading === false && (
-                                <button type="submit" className="botao_cadastro"
+                                <button onClick={() => cadastrarAluno} type="submit" className="botao_cadastro"
                                 ><img className="seta_cadastro" src={SetinhaBranca} alt="Seta" /> Cadastrar</button>
                             )
                         }

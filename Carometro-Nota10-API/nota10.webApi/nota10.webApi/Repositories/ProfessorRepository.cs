@@ -40,7 +40,8 @@ namespace nota10.webApi.Repositories
                 },
                 IdUsuarioNavigation = new Usuario
                 {
-                    IdUsuario = p.IdUsuarioNavigation.IdUsuario
+                    IdUsuario = p.IdUsuarioNavigation.IdUsuario,
+                    NomeUsuario = p.IdUsuarioNavigation.NomeUsuario
                 }
 
             }).ToList();

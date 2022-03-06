@@ -5,16 +5,23 @@ import "../../assets/css/style.css";
 import logo from '../../assets/img/Logo_Header.png';
 import SideBar2 from '../../components/SideBar/SideBar2';
 import PerfilFT from '../../assets/img/icon-foto-carometro.png';
+import FotoPadrao from '../../assets/img/imagem-usuario-padrao.png';
 import Lupa from '../../assets/img/lupa.png';
 import setinha from '../../assets/img/setinha.png';
+import { Modall } from '../../components/Modals/Modal';
 
 export default function Carometro() {
 
     //States
-    const [listaAluno, setListaAlunos] = useState([]);
+    const [listaAlunos, setListaAlunos] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     const [listaSala, setListaSala] = useState([]);
     const [nomeAluno, setNomeAluno] = useState('');
+    const [idAlunoModal, setIdAlunoModal] = useState(0)
     const [listaAlunosAchados, setListaAlunosAchados] = useState([])
+    const OpenModal = () => {
+        setShowModal(prev => !prev);
+    }
 
     function BuscarAlunos() {
 
@@ -31,7 +38,7 @@ export default function Carometro() {
 
                 if (resposta.status === 200) {
 
-                    setListaAlunos(resposta.status)
+                    setListaAlunos(resposta.data)
                     console.log(resposta)
 
                 }
@@ -53,7 +60,7 @@ export default function Carometro() {
         )
 
             .then((resposta) => {
-                if (resposta.status == 200) {
+                if (resposta.status === 200) {
                     setListaSala(resposta.data)
                     console.log(resposta)
                 }
@@ -82,8 +89,11 @@ export default function Carometro() {
     useEffect(ListarSalas, [])
 
     return (
-        <div className='container'>
-
+        <div>
+              <Modall aluno={listaAlunos.find(aluno => aluno.idAluno == idAlunoModal)} showModal={showModal} setShowModal={setShowModal} /> 
+        
+            <div className='container'>
+          
             <div className="container_header_carometro">
                 <img className="imagem_logo" src={logo} alt="Logo Nota 10" />
                 <img className="container_foto_carometro" src={PerfilFT} alt="Foto Perfil" />
@@ -93,7 +103,7 @@ export default function Carometro() {
 
             <div className='box_pesquisa-carometro'>
                 <form className='box_pesquisa_input'>
-                    <img className='lupa_pesquisa_carometro' src ={Lupa}/>
+                    <img className='lupa_pesquisa_carometro' src={Lupa} />
                     <input className="input_pesquisa_carometro" type='search' />
                 </form>
             </div>
@@ -101,26 +111,45 @@ export default function Carometro() {
 
 
             <main className='main_carometro'>
-                <div className='container_alunos'>
+                <div className='container_box_alunos'>
                     {
-                        <div className='box_aluno'>
-                            <div className='foto_aluno'>
-                                <img />
-                            </div>
-                            <div className='nome_aluno'>
-                                <span>{nomeAluno}</span>
-                            </div>
-                            <div className='situacao_aluno'>
-                                <span></span>
-                            </div>
-                            <div>
-                                <img className="seta" src={setinha} alt="Seta" />
-                            </div>
-                        </div>
+
+                        listaAlunos.map((aluno) => {
+                            return (
+                                <div key={aluno.id} className='card_aluno_carometro'>
+                                    <div className='foto_aluno_box_carometro'>
+                                        <img className='foto_aluno' src={aluno.fotoDoPerfil === "foto" ?
+                                            FotoPadrao : "data:image/png;base64," + aluno.fotoDoPerfil} />
+                                    </div>
+                                    <div className='box_dados_alunos_carometro'>
+                                        <span className='nome_aluno'>{aluno.nomeAluno}</span>
+                                        <span
+                                            className='situacao_aluno'
+
+                                            style={{
+                                                'color': aluno.situacao === true ?
+                                                    '#12FE0D' : '#E40A0A'
+                                            }}
+                                        >{
+                                                aluno.situacao === true ?
+                                                    'Aprovado' : 'Reprovado'
+
+                                            }</span>
+                                    </div>
+                                    <a onClick={OpenModal} onClickCapture = {() =>setIdAlunoModal(aluno.idAluno)} className='seta_aluno_carometro'>
+                                        <img className="seta" src={setinha} alt="Seta" />
+                                    </a>
+                                </div>
+                            );
+                        })
                     }
                 </div>
 
+                <button onClick={OpenModal}>I'm a modal</button>
+
+
             </main>
         </div>
+    </div>
     );
 }

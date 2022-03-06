@@ -68,7 +68,7 @@ namespace nota10.webApi.Controllers
         {
             try
             {
-                if (alunoViewModel.FotoDePerfil.Length > 50000)
+                if (alunoViewModel.FotoDePerfil.Length > 150588)
                 {
                     return BadRequest(new { mensagem = "A imagem deve ter no máximo 5mb !" });
                 }

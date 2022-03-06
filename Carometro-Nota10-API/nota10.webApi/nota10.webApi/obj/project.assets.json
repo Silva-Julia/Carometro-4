@@ -7778,19 +7778,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theus\\.nuget\\packages\\": {}
+    "C:\\Users\\Vinicius\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
       "projectName": "nota10.webApi",
-      "projectPath": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
-      "packagesPath": "C:\\Users\\theus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theus\\OneDrive\\Documentos\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
+      "projectPath": "C:\\Users\\Vinicius\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\nota10.webApi.csproj",
+      "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vinicius\\Desktop\\Carometro-4\\Carometro-Nota10-API\\nota10.webApi\\nota10.webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7877,7 +7877,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,13 +5,14 @@ import { MdClose } from 'react-icons/md';
 import iconFoto from '../../assets/img/IconFoto.png';
 
 const Background = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 90;
 
 `;
 
@@ -61,7 +62,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-export const Modall = ({ showModal, setShowModal }) => {
+export const Modall = ({ showModal, setShowModal, aluno }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -91,10 +92,12 @@ export const Modall = ({ showModal, setShowModal }) => {
   useEffect(
     () => {
       document.addEventListener('keydown', keyPress);
+      console.log('fui iniciado');
       return () => document.removeEventListener('keydown', keyPress);
     },
     [keyPress]
   );
+ 
 
   return (
     <>
@@ -104,7 +107,7 @@ export const Modall = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalContent>
               <img className='icon_foto' src={iconFoto}/>
-                <h1>Username</h1>
+                <h1>{aluno.nomeAluno}</h1>
                 <p>Sala</p>
                 <button>Perfil</button>
               </ModalContent>

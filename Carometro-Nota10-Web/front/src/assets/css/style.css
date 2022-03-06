@@ -176,10 +176,11 @@ header {
 
 
 /* ==============================   HOME   ===============================================    */
-.organizador_box{
+.organizador_box {
     display: flex;
     justify-content: space-between;
 }
+
 .btn_redirect {
     background-color: transparent;
     border: none;
@@ -188,7 +189,7 @@ header {
     justify-content: right;
 }
 
-.btn_redirect img{
+.btn_redirect img {
     height: 80px;
 }
 
@@ -227,7 +228,7 @@ header {
     justify-content: space-around;
 }
 
-.container_cdSala{
+.container_cdSala {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,41 +238,48 @@ header {
     width: 48%;
     padding-top: 50px;
     box-sizing: border-box;
+    height: 340px;
 
 }
-.titulo_cdSala{
+
+.titulo_cdSala {
     font-size: 1.8vw;
     font-weight: bold;
     text-transform: capitalize;
 }
-.form_cdSala{
+
+.form_cdSala {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.formulario_cdSala{
+
+.formulario_cdSala {
     display: flex;
     flex-direction: column;
     height: 40vh;
 }
-.input_cdSala{
+
+.input_cdSala {
     width: 300px;
     height: 30px;
     margin-top: 50px;
     background-color: transparent;
     outline: 0;
-    border: 0 ;
+    border: 0;
     border-bottom: #2C344F 2px solid;
     box-sizing: border-box;
     padding: 0 20px;
     background-position: 260px;
     font-size: 15px;
 }
-.input_cdSala::placeholder{
+
+.input_cdSala::placeholder {
     color: #000;
     font-size: 15px;
 }
-select{
+
+select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -282,7 +290,8 @@ select{
 
 
 }
-.botao_cdSala{
+
+.botao_cdSala {
     width: 300px;
     height: 35px;
     margin-top: 50px;
@@ -298,15 +307,18 @@ select{
     border-style: none;
     border-radius: 5px;
 }
+
 .botao_cdSala:hover {
     transform: scale(1.001);
     background: linear-gradient(180deg, #0D2538 41.67%, #2C344F 100%);
 }
-.seta_cdSala{
+
+.seta_cdSala {
     height: 30px;
     margin-left: 65px;
     margin-right: 20px;
 }
+
 /* ==============================   HOME   ===============================================    */
 
 
@@ -355,17 +367,22 @@ select{
     padding: 20px;
 }
 
-.foto_aluno {
-    width: 50%;
+.box_dados_alunos_carometro {
+    display: flex;
+    flex-direction: column;
 }
 
 .nome_aluno {
     color: black;
-    font-size: 24px;
+    font-size: 21px;
+    padding-left: 18px;
+    padding-top: 7px;
 }
 
 .situacao_aluno {
-    font-size: 24px;
+    font-size: 21px;
+    padding-left: 18px;
+    padding-bottom: 7px;
 }
 
 .seta {
@@ -384,6 +401,17 @@ select{
 
 .main_carometro {
     margin-top: 0px;
+    margin-left: 16.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_box_alunos{
+    display: flex;
+    justify-content: space-evenly;
+    width: 89%;
+    flex-wrap: wrap;
 }
 
 .box_pesquisa-carometro {
@@ -394,7 +422,7 @@ select{
     height: 48px;
     width: 48px;
     border-bottom: black 2px solid;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .input_pesquisa_carometro {
@@ -416,36 +444,65 @@ select{
     align-items: center;
 }
 
+.card_aluno_carometro {
+    width: 249px;
+    height: 379px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    margin-top: 40px;
+}
+
+.foto_aluno_box_carometro{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 251px;
+}
+
+.foto_aluno {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
 
 /* ==============================   CAROMETRO   ===============================================    */
 
 /*=============================== CADASTRO ===================================================== */
 
-.container_cadastro{
+.container_cadastro {
     display: flex;
     justify-content: center;
     margin-top: 12vh;
 }
-.header_cadastro{
+
+.header_cadastro {
     display: flex;
     justify-content: center;
 }
-.titulo_cadastro{
+
+.titulo_cadastro {
     font-size: 60px;
     font-weight: bold;
     margin-top: 20px;
 }
-.input_foto{
+
+.input_foto {
     display: flex;
     flex-direction: column;
     margin-right: 50px;
 }
-.img_perfilCadastro{
+
+.img_perfilCadastro {
     height: 180px;
     width: 180px;
     margin-bottom: 10px;
 }
-.input_file{
+
+.input_file {
     background-color: transparent;
     color: #0D2538;
     text-transform: capitalize;
@@ -455,10 +512,12 @@ select{
 
     cursor: pointer;
 }
+
 input[type="file"] {
     display: none;
 }
-.body_cadastro{
+
+.body_cadastro {
     height: 50vh;
     display: flex;
     justify-content: space-around;
@@ -466,7 +525,8 @@ input[type="file"] {
     flex-direction: column;
     margin-top: 50px;
 }
-.input_cadastro{
+
+.input_cadastro {
     width: 450px;
     height: 55px;
     background-color: transparent;
@@ -478,11 +538,13 @@ input[type="file"] {
     background-position: 370px;
     font-size: 18px;
 }
-.input_cadastro::placeholder{
+
+.input_cadastro::placeholder {
     color: #000;
-    
+
 }
-.botao_cadastro{
+
+.botao_cadastro {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -502,11 +564,13 @@ input[type="file"] {
     text-transform: uppercase;
 
 }
+
 .botao_cadastro:hover {
     transform: scale(1.001);
     background: linear-gradient(180deg, #0D2538 41.67%, #2C344F 100%);
 }
-.seta_cadastro{
+
+.seta_cadastro {
     height: 55px;
     width: 60px;
     margin-left: 60px;
@@ -518,33 +582,32 @@ input[type="file"] {
 
 /*=============================== PERFIL ===================================================== */
 
-.imagem_logo{
+.imagem_logo {
     height: 120px;
     width: 300px;
-    margin-left: 40px;
-    margin-left: 200px;
+    margin-left: 45px;
 }
 
-.container_foto{
+.container_foto {
     height: 210px;
     display: flex;
     justify-content: right;
 }
 
-.contaier_foto_editar{
+.contaier_foto_editar {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
 }
 
-.foto_perfil{
+.foto_perfil {
     width: 175px;
     height: 175px;
     border-radius: 90px;
 }
 
-.margin_foto{
+.margin_foto {
     margin-right: 40px;
     display: flex;
     align-items: center;
@@ -552,7 +615,7 @@ input[type="file"] {
 
 }
 
-.estilo_editar_button{
+.estilo_editar_button {
     width: 150px;
     height: 50px;
     margin-top: 10px;
@@ -560,7 +623,7 @@ input[type="file"] {
     border-radius: 8px;
 }
 
-.container_info{
+.container_info {
     height: 40px;
     width: 400px;
     background-color: #fff;
@@ -570,22 +633,22 @@ input[type="file"] {
     border-radius: 10px;
 }
 
-.margin_info{
+.margin_info {
     margin-bottom: 20px;
     margin-left: 15px;
     color: #A5A5A5;
     font-size: 30px;
 }
 
-.margin_top_info{
+.margin_top_info {
     margin-top: 40px;
 }
 
-.margin_geral_info{
+.margin_geral_info {
     margin-left: 350px;
 }
 
-.margin_left_info{
+.margin_left_info {
     margin-left: 10px;
 }
 
