@@ -92,15 +92,16 @@ namespace nota10.webApi.Controllers
         }
 
         // PUT api/<ValuesController>/5
-        [Authorize(Roles = "2")]
-        [HttpPatch("Atualizar/Foto/{id}")]
-        public IActionResult EditarFotoDoAluno(int id, [FromForm] IFormFile foto)
+        [Authorize(Roles = "1")]
+        [HttpPut("Atualizar/Foto")]
+        public IActionResult EditarFotoDoAluno([FromForm]AlunoFotoViewModel alunoFoto)
         {
             try
             {
-                if (foto != null && !(id == 0))
+                if (alunoFoto.FotoDePerfil != null && !(alunoFoto.IdAluno == 0))
                 {
-                    _AlunoRepository.EditarFotoDoAluno(id, foto);
+                    _AlunoRepository.EditarFotoDoAluno(
+                        alunoFoto.IdAluno, alunoFoto.FotoDePerfil);
                     return StatusCode(200);
                 }
 
@@ -113,7 +114,7 @@ namespace nota10.webApi.Controllers
         }
 
         // DELETE api/<ValuesController>/5
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1")]
         [HttpDelete("Excluir/{id}")]
         public IActionResult ExcluirAluno(int id)
         {
@@ -133,7 +134,7 @@ namespace nota10.webApi.Controllers
             }
         }
 
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1")]
         [HttpPut("Atualizar/Sala/{idAluno}/{idSala}")]
         public IActionResult AtualizarSalaDoAluno(int idAluno, int idSala)
         {

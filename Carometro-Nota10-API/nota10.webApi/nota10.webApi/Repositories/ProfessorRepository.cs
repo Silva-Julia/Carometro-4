@@ -41,7 +41,8 @@ namespace nota10.webApi.Repositories
                 IdUsuarioNavigation = new Usuario
                 {
                     IdUsuario = p.IdUsuarioNavigation.IdUsuario,
-                    NomeUsuario = p.IdUsuarioNavigation.NomeUsuario
+                    NomeUsuario = p.IdUsuarioNavigation.NomeUsuario,
+                    FotoUsuario = p.IdUsuarioNavigation.FotoUsuario
                 }
 
             }).ToList();

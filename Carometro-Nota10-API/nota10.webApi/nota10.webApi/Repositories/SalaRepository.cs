@@ -39,6 +39,7 @@ namespace nota10.webApi.Repositories
                        IdProfessor = s.IdProfessorNavigation.IdProfessor,
                        IdUsuarioNavigation = new Usuario
                        {
+                           IdUsuario = s.IdProfessorNavigation.IdUsuarioNavigation.IdUsuario,
                            NomeUsuario = s.IdProfessorNavigation.IdUsuarioNavigation.NomeUsuario
                        },
                        IdMateriaNavigation = new Materium

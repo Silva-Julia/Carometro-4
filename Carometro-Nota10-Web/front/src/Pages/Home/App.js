@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/img/LogoNota.png'
 import '../../assets/css/style.css';
 import SetinhaBranca from '../../assets/img/SetinhaBranca.png';
+import { parseJwt } from '../../Services/auth';
 import Navbar from '../../components/Header/NavBar';
 import { useState, useEffect } from 'react';
 
@@ -55,7 +56,7 @@ export default function Home() {
           setIsLoading(true)
           ListarSalas();
 
-          
+
         }
       })
       .catch(erro => console.log(erro))
@@ -73,6 +74,7 @@ export default function Home() {
       .then((resposta) => {
         if (resposta.status === 200) {
           setListaSalas(resposta.data)
+          console.log(resposta.data)
         }
       })
 
@@ -92,7 +94,7 @@ export default function Home() {
       </header>
       <main>
         <div className='container organizador_box'>
-          <div className='container_cdSala'>
+          {parseJwt().role == 1 && <div className='container_cdSala'>
             <span className='titulo_cdSala'>cadastrar sala</span>
             <form onSubmit={cadastrarSala} className="form_cdSala">
               <div className="formulario_cdSala">
@@ -146,22 +148,27 @@ export default function Home() {
               </div>
             </form>
           </div>
-          <div className='container_salas'>
+
+          }
+
+          <div style={{'width': parseJwt().role == 2   && '100%'}} className='container_salas'>
             {
               listaSalas.map((event) => {
-                return (
-                  <div className='box_sala'>
-                    <div className='box_titulo'>
-                      <span>Turma {event.nomeSala}</span>
+
+
+                if (event.idProfessorNavigation.idUsuarioNavigation.idUsuario == parseJwt().jti || parseJwt().role == 1    ) {
+                  return (
+                    <div key={event.idSala} className='box_sala'>
+                      <div className='box_titulo'>
+                        <span>Turma {event.nomeSala}</span>
+                      </div>
+                      <div className='box_body'>
+                        <span> Sala {event.numeroSala}</span>
+                        <span>Professor {event.idProfessorNavigation.idUsuarioNavigation.nomeUsuario} </span>
+                      </div>
+                      <Link to = {"Carometro/"+ event.idSala} className='btn_redirect'><img src={SetinhaBranca} /></Link>
                     </div>
-                    <div className='box_body'>
-                      <span> Sala {event.numeroSala}</span>
-                      <span>Professor {event.idProfessorNavigation.idUsuarioNavigation.nomeUsuario} </span>
-                    </div>
-                    <button className='btn_redirect'><img src={SetinhaBranca} /></button>
-                  </div>
-                )
-              })
+              )}})
             }
           </div>
 

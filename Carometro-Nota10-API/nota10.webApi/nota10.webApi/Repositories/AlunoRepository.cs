@@ -96,7 +96,8 @@ namespace nota10.webApi.Repositories
                 Rm = a.Rm,
                 Situacao = a.Situacao,
                 Telefone = a.Telefone,
-                IdSala = a.IdSala
+                IdSala = a.IdSala,
+                IdSalaNavigation = new Sala { NomeSala = a.IdSalaNavigation.NomeSala }
 
             }).ToList();
         }

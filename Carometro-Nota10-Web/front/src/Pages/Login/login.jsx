@@ -40,7 +40,8 @@ export default function Login() {
                 console.log(base64);
 
 
-                console.log(parseJwt().role);
+                console.log(parseJwt().jti === 1);
+                
 
 
                 history.push('/Cadastro')

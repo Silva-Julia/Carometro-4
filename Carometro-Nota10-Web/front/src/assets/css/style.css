@@ -20,7 +20,62 @@ main {
 }
 
 
+/* ==============================   MODAL   ===============================================    */
 
+.foto_perfil_modal {
+    width: 157px;
+    height: 157px;
+    border-radius: 78px;
+
+}
+
+.foto_modal {
+    height: 100%;
+    width: 100%;
+    border-radius: 78px;
+}
+
+.box_informações_modal {
+    display: flex;
+    flex-direction: column;
+    height: 38%;
+}
+
+.box_modal {
+    display: flex;
+    height: 78vh;
+    width: 43vw;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box_foto_nome_modal {
+    display: flex;
+    flex-direction: column;
+    height: 66%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box_informações_modal span {
+    font-size: 27px;
+
+
+}
+
+.box_span {
+    display: flex;
+}
+
+.box_span_key_modal {
+    font-weight: 600;
+    font-size: 27px;
+}
+
+.span_value_modal {
+    font-size: 27px;
+    margin-left: 10px;
+}
 
 /* ==============================   HEADER   ===============================================    */
 
@@ -204,7 +259,7 @@ header {
 
 .box_sala {
     height: 200px;
-    width: 97%;
+    width: 50%;
     display: flex;
     align-items: left;
     flex-direction: column;
@@ -238,7 +293,7 @@ header {
     width: 48%;
     padding-top: 50px;
     box-sizing: border-box;
-    height: 340px;
+    height: 383px;
 
 }
 
@@ -257,7 +312,7 @@ header {
 .formulario_cdSala {
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    height: 360px;
 }
 
 .input_cdSala {
@@ -407,7 +462,7 @@ select {
     justify-content: center;
 }
 
-.container_box_alunos{
+.container_box_alunos {
     display: flex;
     justify-content: space-evenly;
     width: 89%;
@@ -454,7 +509,7 @@ select {
     margin-top: 40px;
 }
 
-.foto_aluno_box_carometro{
+.foto_aluno_box_carometro {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -511,10 +566,6 @@ select {
     font-size: 22px;
 
     cursor: pointer;
-}
-
-input[type="file"] {
-    display: none;
 }
 
 .body_cadastro {
@@ -585,7 +636,7 @@ input[type="file"] {
 .imagem_logo {
     height: 120px;
     width: 300px;
-    margin-left: 45px;
+    margin-left: 284px;
 }
 
 .container_foto {
@@ -650,6 +701,58 @@ input[type="file"] {
 
 .margin_left_info {
     margin-left: 10px;
+}
+
+.input_cadastro_perfil {
+    width: 450px;
+    height: 55px;
+    background-color: transparent;
+    outline: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-position: 370px;
+    font-size: 18px;
+    margin-top: 6px;
+margin-bottom: 26px;
+}
+
+.botao_cadastro_perfil {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 292px;
+    height: 55px;
+    background-color: #0D2538;
+    box-shadow: 6px 10px 35px -10px #0D2538;
+    border-style: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1.2vw;
+    font-family: 'Noto Serif SC';
+    text-transform: uppercase;
+    margin-top: 38px;
+    margin-right: 116px;
+    
+
+}
+
+.seta_cadastro_perfil {
+    height: 55px;
+    width: 60px;
+    margin-left: 14px;
+}
+
+.container_info_perfil {
+    flex-direction: column;
+    height: 40px;
+    width: 400px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(62, 81, 143, 0.7);
+    border-radius: 10px;
+    flex-direction: column;
 }
 
 /*=============================== PERFIL ===================================================== */

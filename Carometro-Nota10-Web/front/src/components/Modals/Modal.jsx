@@ -1,8 +1,12 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import iconFoto from '../../assets/img/IconFoto.png';
+import { parseJwt } from '../../Services/auth';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Background = styled.div`
   width: 100vw;
@@ -65,6 +69,8 @@ const CloseModalButton = styled(MdClose)`
 export const Modall = ({ showModal, setShowModal, aluno }) => {
   const modalRef = useRef();
 
+  let history = useHistory();
+
   const animation = useSpring({
     config: {
       duration: 250
@@ -89,15 +95,16 @@ export const Modall = ({ showModal, setShowModal, aluno }) => {
     [setShowModal, showModal]
   );
 
+
+
   useEffect(
     () => {
       document.addEventListener('keydown', keyPress);
-      console.log('fui iniciado');
       return () => document.removeEventListener('keydown', keyPress);
     },
     [keyPress]
   );
- 
+
 
   return (
     <>
@@ -106,10 +113,55 @@ export const Modall = ({ showModal, setShowModal, aluno }) => {
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
               <ModalContent>
-              <img className='icon_foto' src={iconFoto}/>
-                <h1>{aluno.nomeAluno}</h1>
-                <p>Sala</p>
-                <button>Perfil</button>
+                <div className='box_modal'>
+                  <div className='box_foto_nome_modal'>
+                    <div className='foto_perfil_modal'>
+                      <img className='foto_modal' src={"data:image/png;base64," + aluno.fotoDoPerfil} />
+                    </div>
+                    <h1>{aluno.nomeAluno}</h1>
+
+  
+                    <button onClick={() => history.push(`/Perfil/${aluno.idAluno}`) }> Atualizar Dados</button>
+                    
+                  </div>
+
+
+
+                  <div className='box_informações_modal'>
+                    <div className='box_span'>
+                      <span className='box_span_key'>RM: </span>
+                      <span className='span_value_modal'>{aluno.rm}</span>
+                    </div>
+
+                    <div className='box_span'>
+                      <span className='box_span_key_modal'>Turma:</span>
+                      <span className='span_value_modal'>{aluno.idSalaNavigation.nomeSala}</span>
+                    </div>
+
+
+                    <div className='box_span'>
+                      <span className='box_span_key'>Situacao: </span>
+                      {<span
+                        className='span_value_modal'
+
+                        style={{
+                          'color': aluno.situacao === true ?
+                            '#12FE0D' : '#E40A0A'
+                        }}
+                      >{
+                          aluno.situacao === true ?
+                            'Aprovado' : 'Reprovado'
+
+                        }</span>}
+                    </div>
+
+                    <div className='box_span'>
+                      <span className='box_span_key'>Telefone: </span>
+                      <span className='span_value_modal'>{aluno.telefone}</span>
+                    </div>
+
+                  </div>
+                </div>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'

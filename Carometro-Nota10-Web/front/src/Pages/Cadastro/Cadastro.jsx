@@ -114,7 +114,7 @@ useEffect(BuscarSalas, [])
 
 return (
     <div>
-        <SideBar2 />
+        <SideBar2/>
         <div className="container_cadastro">
 
             <div className="box_cadastro">

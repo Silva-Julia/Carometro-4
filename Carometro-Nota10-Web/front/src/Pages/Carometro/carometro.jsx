@@ -9,10 +9,12 @@ import FotoPadrao from '../../assets/img/imagem-usuario-padrao.png';
 import Lupa from '../../assets/img/lupa.png';
 import setinha from '../../assets/img/setinha.png';
 import { Modall } from '../../components/Modals/Modal';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Carometro() {
 
     //States
+    const idSala = useParams();
     const [listaAlunos, setListaAlunos] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [listaSala, setListaSala] = useState([]);
@@ -24,7 +26,7 @@ export default function Carometro() {
     }
 
     function BuscarAlunos() {
-
+console.log(idSala)
         axios.get('http://localhost:5000/api/Alunos/Buscar', {
 
             headers: {
@@ -115,39 +117,38 @@ export default function Carometro() {
                     {
 
                         listaAlunos.map((aluno) => {
-                            return (
-                                <div key={aluno.id} className='card_aluno_carometro'>
-                                    <div className='foto_aluno_box_carometro'>
-                                        <img className='foto_aluno' src={aluno.fotoDoPerfil === "foto" ?
-                                            FotoPadrao : "data:image/png;base64," + aluno.fotoDoPerfil} />
-                                    </div>
-                                    <div className='box_dados_alunos_carometro'>
-                                        <span className='nome_aluno'>{aluno.nomeAluno}</span>
-                                        <span
-                                            className='situacao_aluno'
 
-                                            style={{
-                                                'color': aluno.situacao === true ?
-                                                    '#12FE0D' : '#E40A0A'
-                                            }}
-                                        >{
-                                                aluno.situacao === true ?
-                                                    'Aprovado' : 'Reprovado'
-
-                                            }</span>
+                            if(aluno.idSala == idSala.idSala) {
+                                return (
+                                    <div key={aluno.id} className='card_aluno_carometro'>
+                                        <div className='foto_aluno_box_carometro'>
+                                            <img className='foto_aluno' src={aluno.fotoDoPerfil === "foto" ?
+                                                FotoPadrao : "data:image/png;base64," + aluno.fotoDoPerfil} />
+                                        </div>
+                                        <div className='box_dados_alunos_carometro'>
+                                            <span className='nome_aluno'>{aluno.nomeAluno}</span>
+                                            <span
+                                                className='situacao_aluno'
+    
+                                                style={{
+                                                    'color': aluno.situacao === true ?
+                                                        '#12FE0D' : '#E40A0A'
+                                                }}
+                                            >{
+                                                    aluno.situacao === true ?
+                                                        'Aprovado' : 'Reprovado'
+    
+                                                }</span>
+                                        </div>
+                                        <a onClick={OpenModal} onClickCapture = {() =>setIdAlunoModal(aluno.idAluno)} className='seta_aluno_carometro'>
+                                            <img className="seta" src={setinha} alt="Seta" />
+                                        </a>
                                     </div>
-                                    <a onClick={OpenModal} onClickCapture = {() =>setIdAlunoModal(aluno.idAluno)} className='seta_aluno_carometro'>
-                                        <img className="seta" src={setinha} alt="Seta" />
-                                    </a>
-                                </div>
-                            );
+                                );
+                            }
                         })
                     }
                 </div>
-
-                <button onClick={OpenModal}>I'm a modal</button>
-
-
             </main>
         </div>
     </div>
