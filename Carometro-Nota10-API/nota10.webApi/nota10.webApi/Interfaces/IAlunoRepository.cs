@@ -48,6 +48,8 @@ namespace nota10.webApi.Interfaces
         /// <returns>Retorna um array de alunos</returns>
         Array BuscarAlunoPeloNome(string nomeAluno);
 
-        
+        Aluno BuscarPorFoto(string fotoAluno);
+
+
     }
 }

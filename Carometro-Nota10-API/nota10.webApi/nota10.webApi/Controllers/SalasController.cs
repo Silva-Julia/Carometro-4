@@ -35,7 +35,7 @@ namespace nota10.webApi.Controllers
         }
 
         // POST api/<SalasController>
-        [Authorize(Roles = "1")]
+
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarSala(Sala novaSala)
         {
