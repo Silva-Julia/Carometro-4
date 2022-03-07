@@ -61,6 +61,27 @@ namespace nota10.webApi.Controllers
             }
         }
 
+        [HttpGet("BuscarFoto/{fotoPerfil}")]
+        [Authorize]
+        public IActionResult BuscarPorFoto(string idFoto)
+        {
+            try
+            {
+                Aluno alunoConsulta = _AlunoRepository.BuscarPorFoto(idFoto);
+
+                if (alunoConsulta != null)
+                {
+                    return Ok(alunoConsulta);
+                }
+                else return NotFound("Imagem não reconhecida");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+                throw;
+            }
+        }
+
         // POST api/<ValuesController>
         [HttpPost("Cadastrar")]
 

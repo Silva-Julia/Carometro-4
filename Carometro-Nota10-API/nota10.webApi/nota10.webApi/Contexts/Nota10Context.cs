@@ -143,9 +143,13 @@ namespace nota10.webApi.Contexts
                     .IsUnicode(false)
                     .HasColumnName("numeroSala");
 
+<<<<<<< HEAD
                 entity.Property(e => e.Periodo)
                     .HasColumnName("periodo")
                     .HasDefaultValueSql("((0))");
+=======
+
+>>>>>>> 3488f730b9b3dbd837bee21dc873aa0b7c45b298
 
                 entity.HasOne(d => d.IdProfessorNavigation)
                     .WithMany(p => p.Salas)
