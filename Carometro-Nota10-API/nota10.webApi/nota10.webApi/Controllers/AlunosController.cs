@@ -68,7 +68,7 @@ namespace nota10.webApi.Controllers
         {
             try
             {
-                if (alunoViewModel.FotoDePerfil.Length > 150588)
+                if (alunoViewModel.FotoDePerfil.Length > 1505888)
                 {
                     return BadRequest(new { mensagem = "A imagem deve ter no máximo 5mb !" });
                 }
@@ -93,15 +93,14 @@ namespace nota10.webApi.Controllers
 
         // PUT api/<ValuesController>/5
         [Authorize(Roles = "1")]
-        [HttpPut("Atualizar/Foto")]
-        public IActionResult EditarFotoDoAluno([FromForm]AlunoFotoViewModel alunoFoto)
+        [HttpPut("Atualizar/Foto/{idAluno}")]
+        public IActionResult EditarFotoDoAluno(int idAluno,[FromForm]IFormFile alunoFoto)
         {
             try
             {
-                if (alunoFoto.FotoDePerfil != null && !(alunoFoto.IdAluno == 0))
+                if (alunoFoto != null && !(idAluno == 0))
                 {
-                    _AlunoRepository.EditarFotoDoAluno(
-                        alunoFoto.IdAluno, alunoFoto.FotoDePerfil);
+                    _AlunoRepository.EditarFotoDoAluno( idAluno, alunoFoto);
                     return StatusCode(200);
                 }
 
@@ -123,7 +122,7 @@ namespace nota10.webApi.Controllers
                 if (id != 0)
                 {
                     _AlunoRepository.ExcluirAluno(id);
-                    return StatusCode(201);
+                    return StatusCode(204);
                 }
 
                 return NotFound();

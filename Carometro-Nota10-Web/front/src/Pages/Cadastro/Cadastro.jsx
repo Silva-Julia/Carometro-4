@@ -11,7 +11,7 @@ import SetinhaBranca from '../../assets/img/SetinhaBranca.png';
 export default function Cadastro() {
 
     const [idSala, setIdSala] = useState(0)
-    const [idSituacao, setSituacao] = useState(0);
+    const [idSituacao, setIdSituacao] = useState(0);
     const [NomeAluno, setNomeAluno] = useState('');
     const [RM, setRM] = useState('');
     const [Telefone, setTelefone] = useState('');
@@ -50,7 +50,7 @@ export default function Cadastro() {
 
         formData.append('idSala', idSala);
         formData.append('fotoDePerfil', FotoPerfil);
-        formData.append('idSituacao', idSituacao);
+        formData.append('situacao', idSituacao);
         formData.append('nomeAluno', NomeAluno);
         formData.append('Telefone', Telefone);
         formData.append('RM', RM);
@@ -148,16 +148,18 @@ return (
                             })}
 
                         </select>
-                        <select name="idSituacao"
+                        <select name="Situacao"
                             value={idSituacao}
-                            onChange={(event) => setSituacao(event.target.value)}
+                            onChange={event => setIdSituacao(event.target.value)}
                             className="input_cadastro"
 
                         >
-                            <option value="false">Aprovado</option>
-                            <option value="true">Reprovado</option>
+                            <option>Situação</option>
+                            <option value={true}>Aprovado</option>
+                            <option value={false}>Reprovado</option>
 
                         </select>
+
                         <input type="text" className="input_cadastro" name="telefone" placeholder="Telefone" value={Telefone} onChange={(event) => setTelefone(event.target.value)} />
                         {
                             isLoading && (

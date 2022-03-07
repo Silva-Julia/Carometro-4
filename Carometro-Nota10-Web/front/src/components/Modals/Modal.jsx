@@ -106,6 +106,8 @@ export const Modall = ({ showModal, setShowModal, aluno }) => {
   );
 
 
+
+
   return (
     <>
       {showModal ? (
@@ -122,6 +124,7 @@ export const Modall = ({ showModal, setShowModal, aluno }) => {
 
   
                     <button onClick={() => history.push(`/Perfil/${aluno.idAluno}`) }> Atualizar Dados</button>
+                
                     
                   </div>
 

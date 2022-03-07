@@ -29,7 +29,6 @@ namespace nota10.webApi.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-
                 optionsBuilder.UseSqlServer("name=Default");
             }
         }
@@ -41,7 +40,7 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<Aluno>(entity =>
             {
                 entity.HasKey(e => e.IdAluno)
-                    .HasName("PK__ALUNO__0C5BC84962105F55");
+                    .HasName("PK__ALUNO__0C5BC8497459DFF9");
 
                 entity.ToTable("ALUNO");
 
@@ -81,7 +80,7 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<Materium>(entity =>
             {
                 entity.HasKey(e => e.IdMateria)
-                    .HasName("PK__MATERIA__4B740AB305D0B1A5");
+                    .HasName("PK__MATERIA__4B740AB34C9806B9");
 
                 entity.ToTable("MATERIA");
 
@@ -96,7 +95,7 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<Professor>(entity =>
             {
                 entity.HasKey(e => e.IdProfessor)
-                    .HasName("PK__PROFESSO__4E7C3C6D56071392");
+                    .HasName("PK__PROFESSO__4E7C3C6D7546618D");
 
                 entity.ToTable("PROFESSOR");
 
@@ -126,7 +125,7 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<Sala>(entity =>
             {
                 entity.HasKey(e => e.IdSala)
-                    .HasName("PK__SALA__C4AEB19C10CDC28B");
+                    .HasName("PK__SALA__C4AEB19C57B6990F");
 
                 entity.ToTable("SALA");
 
@@ -139,11 +138,14 @@ namespace nota10.webApi.Contexts
                     .IsUnicode(false)
                     .HasColumnName("nomeSala");
 
-                entity.Property(e => e.NumeroSala).HasColumnName("numeroSala");
+                entity.Property(e => e.NumeroSala)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("numeroSala");
 
                 entity.Property(e => e.Periodo)
                     .HasColumnName("periodo")
-                    .HasDefaultValueSql("((1))");
+                    .HasDefaultValueSql("((0))");
 
                 entity.HasOne(d => d.IdProfessorNavigation)
                     .WithMany(p => p.Salas)
@@ -154,7 +156,7 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<TipoUsuario>(entity =>
             {
                 entity.HasKey(e => e.IdTipoUsuario)
-                    .HasName("PK__TIPO_USU__03006BFF0F06141E");
+                    .HasName("PK__TIPO_USU__03006BFF4D7BE3DE");
 
                 entity.ToTable("TIPO_USUARIO");
 
@@ -169,11 +171,11 @@ namespace nota10.webApi.Contexts
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__USUARIO__645723A6938A6FAE");
+                    .HasName("PK__USUARIO__645723A6D0F079B0");
 
                 entity.ToTable("USUARIO");
 
-                entity.HasIndex(e => e.Email, "UQ__USUARIO__AB6E61643954447D")
+                entity.HasIndex(e => e.Email, "UQ__USUARIO__AB6E6164B26859DC")
                     .IsUnique();
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
